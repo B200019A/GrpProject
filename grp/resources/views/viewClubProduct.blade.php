@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div style="margin-top:10px; margin-bottom:10px">
     <div class="row">
         <div class="col-sm-2"></div>
@@ -12,15 +11,15 @@
                 <div style="margin-left:20px; margin-right:20px;  "><!--adjust margin strat-->
                 <div class="row">
                 
-                    @foreach($clubs as $club)
+                    @foreach($products as $product)
     
                     <div class="col-sm-4" style="margin-top:10px">
                         <div class="card h-100">
                             <div class="card-body">
-                            <h5 class="card-title">{{  $club->name }}</h5>
-                            <a href="{{route('viewClubProduct',['id'=>$club->id])}}"><img src="{{asset('images/')}}/{{  $club->image }}" alt="" width="100" class="img-fluid"><a>
+                            <h5 class="card-title">{{  $product->name }}</h5>
+                            <a href=""><img src="{{asset('productimages/')}}/{{  $product->image }}" alt="" width="100" class="img-fluid"><a>
                             
-                            <div class="card-heading">{{  $club->president }}<a href="{{route('viewClubProduct',['id'=>$club->id])}}"><button type="submit" style="float:right;" class="btn btn-danger btn-xs">Enter</button><a></div>
+                            <div class="card-heading">{{  $product->price }}<a href=""><button type="submit" style="float:right;" class="btn btn-danger btn-xs">Add To Cart</button><a></div>
                         </div>
                         </div>
                     </div>
@@ -29,7 +28,7 @@
                     
                     &nbsp;
                 </div>
-                </div>
+                </div><!--adjust margin end-->
                 </div>
             </div>
 
@@ -38,5 +37,5 @@
         <div class="col-sm-2"></div>
     </div>
     </div>
-    
+
 @endsection

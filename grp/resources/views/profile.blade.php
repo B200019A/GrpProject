@@ -107,7 +107,7 @@
             <input class="form-control" type="password" id="password" name="password" min="0" disabled>
             </div>
             <div class="form-group">
-            <a>Confrim Password:</a>
+            <a>Confirm Password:</a>
             <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" disabled>
             </div>
             <button type="submit" class="btn btn-primary">Modify</button>
