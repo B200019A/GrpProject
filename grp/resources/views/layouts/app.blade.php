@@ -40,7 +40,8 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-      
+
+        <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -58,7 +59,7 @@
             <li><a href="#" class="nav-link px-2 text-dark">Features</a></li>
             <li><a href="#" class="nav-link px-2 text-dark">Pricing</a></li>
             <li><a href="#" class="nav-link px-2 text-dark">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2 text-dark">About</a></li>
+            <li><a href="#" class="nav-link px-2 text-dark">MyCart</a></li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -76,6 +77,7 @@
                     @endif
                         @else
                             <div class="dropdown text-end">
+                        
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                  {{ Auth::user()->name }}
                             </a>
@@ -102,7 +104,12 @@
     <main class="py-4">
             @yield('content')
     </main>
-
+    
+    
+    
+    <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4086.3313385770116!2d103.67968244610438!3d1.5336412506508394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da73c109632e0b%3A0x74cda51bf210c304!2z5Y2X5pa55aSn5a2m5a2m6Zmi!5e0!3m2!1szh-CN!2smy!4v1642170336972!5m2!1szh-CN!2smy"
+         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>-->
+       
 
 </body>
 </html>

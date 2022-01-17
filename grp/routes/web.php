@@ -40,6 +40,9 @@ Route::get('/addClubProduct', function () {
 Route::get('/viewClubProduct', function () {
     return view('viewClubProduct');
 });
+Route::get('/clubProductDetail', function () {
+    return view('clubProductDetail');
+});
 
 
 Auth::routes();
@@ -58,12 +61,47 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::post('/index', [App\Http\Controllers\LoginController::class, 'check'])->name('checkStudentId');
 //end
 
+//get the user information 
 Route::get('/profile/{userId}', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
-
+// update the user information
 Route::post('/profile/{userId}', [App\Http\Controllers\ProfileController::class, 'update'])->name('updateInformation');
 
+//view the club product follow the club id
+Route::get('/viewClubProduct/{id}', [App\Http\Controllers\ProductController::class, 'viewClubProduct'])->name('viewClubProduct');
+
+//club crud
+//manage club for checking
+Route::get('/manageClub', [App\Http\Controllers\ClubController::class, 'manageClub'])->name('manageClub');
+
+//add new club
 Route::post('/clubs/store', [App\Http\Controllers\ClubController::class, 'addNewClub'])->name('addNewClub');
 
+//edit the club
+Route::get('/editClub/{id}', [App\Http\Controllers\ClubController::class, 'edit'])->name('editClub');
+
+//update the club information
+Route::post('/updateClub', [App\Http\Controllers\ClubController::class, 'update'])->name('updateClub');
+
+//delete the club
+Route::get('/deleteClub/{id}', [App\Http\Controllers\ClubController::class, 'delete'])->name('deleteClub');
+
+
+//club product crud
+//manage club product for checking
+Route::get('/manageClubProduct', [App\Http\Controllers\ProductController::class, 'manageClubProduct'])->name('manageClubProduct');
+
+//add new club product
 Route::post('/addClubProduct/store', [App\Http\Controllers\ProductController::class, 'addNewProduct'])->name('addNewProduct');
 
-Route::get('/viewClubProduct/{id}', [App\Http\Controllers\ProductController::class, 'viewClubProduct'])->name('viewClubProduct');
+//edit the club product
+Route::get('/editClubProduct/{id}', [App\Http\Controllers\ProductController::class, 'edit'])->name('editClubProduct');
+
+//update the club product information
+Route::post('/updateClubProduct', [App\Http\Controllers\ProductController::class, 'update'])->name('updateClubProduct');
+
+//delete the club
+Route::get('/deleteClubProduct/{id}', [App\Http\Controllers\ProductController::class, 'delete'])->name('deleteClubProduct');
+
+//product detail
+Route::get('/clubProductDetail/{id}', [App\Http\Controllers\ProductController::class, 'clubProductDetail'])->name('clubProduct.Detail');
+

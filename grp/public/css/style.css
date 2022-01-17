@@ -1,0 +1,32 @@
+.footer-wrap {
+    /* background-image: url('/../assets/images/footer-background.png'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 700px; */
+    background-color: #232020;
+}
+
+.google-map-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* padding-top: 65.25%; */
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    /* left: 50%;
+  transform: translateX(-50%); */
+}
+
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+ }
