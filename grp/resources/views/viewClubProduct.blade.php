@@ -19,7 +19,7 @@
                             <h5 class="card-title">{{  $product->name }}</h5>
                             <a href=""><img src="{{asset('productimages/')}}/{{  $product->image }}" alt="" width="100" class="img-fluid"><a>
                             
-                            <div class="card-heading">{{  $product->price }}<a href=""><button type="submit" style="float:right;" class="btn btn-danger btn-xs">Add To Cart</button><a></div>
+                            <div class="card-heading">{{  $product->price }}<a href="{{route('clubProduct.Detail',['id'=>$product->id])}}"><button type="submit" style="float:right;" class="btn btn-danger btn-xs">View Detail</button><a></div>
                         </div>
                         </div>
                     </div>
