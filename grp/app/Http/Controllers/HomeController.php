@@ -26,7 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //when open home page print all club in home page
         $showClub=DB::table('clubs')->get();
+        (new CartController)->cartItem();
         return view('home')->with('clubs', $showClub);
     }
 }

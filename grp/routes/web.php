@@ -105,3 +105,14 @@ Route::get('/deleteClubProduct/{id}', [App\Http\Controllers\ProductController::c
 //product detail
 Route::get('/clubProductDetail/{id}', [App\Http\Controllers\ProductController::class, 'clubProductDetail'])->name('clubProduct.Detail');
 
+//add to cart and update to database
+Route::post('/myCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart');
+
+//output all cart item in my cart page and follow user id
+Route::get('/myCart', [App\Http\Controllers\CartController::class, 'view'])->name('myCart');
+
+//
+Route::get('/payment', [App\Http\Controllers\OrderController::class, 'add'])->name('add.to.order');
+
+
+
