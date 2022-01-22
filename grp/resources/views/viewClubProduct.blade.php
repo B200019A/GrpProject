@@ -17,7 +17,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                             <h5 class="card-title">{{  $product->name }}</h5>
-                            <a href=""><img src="{{asset('productimages/')}}/{{  $product->image }}" alt="" width="100" class="img-fluid"><a>
+                            <a href=""><img src="{{asset('images/product/')}}/{{  $product->image }}" alt="" width="100" class="img-fluid"><a>
                             
                             <div class="card-heading">{{  $product->price }}<a href="{{route('clubProduct.Detail',['id'=>$product->id])}}"><button type="submit" style="float:right;" class="btn btn-danger btn-xs">View Detail</button><a></div>
                         </div>

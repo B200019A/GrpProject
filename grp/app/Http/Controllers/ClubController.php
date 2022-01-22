@@ -13,7 +13,7 @@ class ClubController extends Controller
     public function addNewClub(){
             $r=request();
             $image=$r->file('clubImage');//get the imgae 
-            $image->move('images',$image->getClientOriginalName());//images is the location and save into localfile
+            $image->move('images/club',$image->getClientOriginalName());//images is the location and save into localfile
             $imageName=$image->getClientOriginalName();
     
             $addClub = Club::create([
@@ -50,7 +50,7 @@ class ClubController extends Controller
         //if image no exist will be add
         if($r->file('clubImage')!=''){
           $image=$r->file('clubImage');
-          $image->move('images',$image->getClientOriginalName());//images is the location
+          $image->move('images/club',$image->getClientOriginalName());//images is the location
           $imageName=$image->getClientOriginalName();
           
        }

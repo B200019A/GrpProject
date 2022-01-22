@@ -58,10 +58,12 @@
             <li><a href="#" class="nav-link px-2 text-dark">Home</a></li>
             <li><a href="#" class="nav-link px-2 text-dark">Features</a></li>
             <li><a href="#" class="nav-link px-2 text-dark">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2 text-dark">FAQs</a></li>
+            
             @guest
+            <li><a href="#" class="nav-link px-2 text-dark">My Order</a></li>
             <li><a href="#" class="nav-link px-2 text-dark">MyCart</a></li>
             @else
+            <li><a href="" class="nav-link px-2 text-dark">My Order</a></li>
             <li><a href="{{route('myCart')}}" class="nav-link px-2 text-dark">MyCart  <span class="badge bg-danger">{{Session()->get('cartItem')}}</span></a></li>
             @endguest
             </ul>

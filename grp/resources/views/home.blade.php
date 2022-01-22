@@ -18,7 +18,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                             <h5 class="card-title">{{  $club->name }}</h5>
-                            <a href="{{route('viewClubProduct',['id'=>$club->id])}}"><img src="{{asset('images/')}}/{{  $club->image }}" alt="" width="100" class="img-fluid"><a>
+                            <a href="{{route('viewClubProduct',['id'=>$club->id])}}"><img src="{{asset('images/club')}}/{{  $club->image }}" alt="" width="100" class="img-fluid"><a>
                             
                             <div class="card-heading">{{  $club->president }}<a href="{{route('viewClubProduct',['id'=>$club->id])}}"><button type="submit" style="float:right;" class="btn btn-danger btn-xs">Enter</button><a></div>
                         </div>

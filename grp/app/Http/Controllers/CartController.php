@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+USE Auth;
 use App\Models\Cart;
 use App\Models\Product;
-USE Auth;
 use App\Models\Club;
 
 class CartController extends Controller
@@ -44,12 +44,14 @@ class CartController extends Controller
 
         ->where('carts.orderID','=','') //the item haven't make payment
 
+        ->orwhere('carts.orderID','=','0')
+
         ->where('carts.userID','=',Auth::id())
         ->get();
 
         $this->cartItem();
         //select my_carts.quantity as cartQty,my_carts.id as cid, products.* from my_carts left join products on products.id=my_carts.productID where my_cart.orderID='' and my_carts.userID='Auth::id()'    
-        Return view('myCart')->with('clubProducts',$carts);
+        return view('myCart')->with('clubProducts',$carts);
 
     }
     public function cartItem(){
@@ -58,6 +60,7 @@ class CartController extends Controller
             ->leftjoin('products','products.id','=','carts.productID')
             ->select(DB::raw('COUNT(*) as count_item '))
             ->where('carts.orderID','=','')
+            ->orwhere('carts.orderID','=','0')
             ->where('carts.userID','=',Auth::id())
             ->groupBy('carts.userID')
             ->first();

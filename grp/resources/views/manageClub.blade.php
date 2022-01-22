@@ -22,7 +22,7 @@
                 @foreach($clubs as $club)
                 <tr>
                     <td>{{  $club->id}}</td>
-                    <td ><img src="{{asset('images/')}}/{{  $club->image }}" alt="" width="100" class="img-fluid"></td>
+                    <td ><img src="{{asset('images/club/')}}/{{  $club->image }}" alt="" width="100" class="img-fluid"></td>
                     <td>{{  $club->name }}</td>
                     <td>{{  $club->description }}</td>       
                     <td>{{  $club->president }}</td>

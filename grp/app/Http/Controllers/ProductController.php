@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function addNewProduct(){
         $r=request();
         $image=$r->file('clubProductImage');//get the imgae 
-        $image->move('productimages',$image->getClientOriginalName());//images is the location and save into localfile
+        $image->move('images/product',$image->getClientOriginalName());//images is the location and save into localfile
         $imageName=$image->getClientOriginalName();
 
         $addProduct = Product::create([
@@ -67,7 +67,7 @@ class ProductController extends Controller
         //if image no exist will be add
         if($r->file('clubProductImage')!=''){
           $image=$r->file('clubProductImage');
-          $image->move('productimages',$image->getClientOriginalName());//images is the location
+          $image->move('images/product',$image->getClientOriginalName());//images is the location
           $imageName=$image->getClientOriginalName();
           
        }

@@ -111,8 +111,13 @@ Route::post('/myCart', [App\Http\Controllers\CartController::class, 'add'])->nam
 //output all cart item in my cart page and follow user id
 Route::get('/myCart', [App\Http\Controllers\CartController::class, 'view'])->name('myCart');
 
-//
-Route::get('/payment', [App\Http\Controllers\OrderController::class, 'add'])->name('add.to.order');
+//add order
+Route::post('/payment', [App\Http\Controllers\OrderController::class, 'addOrder'])->name('add.new.order');
 
+//delete order
+//Route::post('/myCart', [App\Http\Controllers\OrderController::class, 'deleteOrder'])->name('cancel.to.order');
+
+//create payment
+Route::post('\myCart', [App\Http\Controllers\PaymentController::class, 'paymentPost'])->name('payment.post');
 
 

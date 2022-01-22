@@ -15,7 +15,7 @@
                     <h5 class="card-title" style="text-align:center;">{{ $clubProduct->name }}</h5>
                     <input type="hidden" name="clubId" value="{{ $clubProduct->clubid }}">
                     <input type="hidden" name="productId" value="{{ $clubProduct->id }}">
-                    <img src="{{ asset('productimages/')}}/{{ $clubProduct->image }}" alt="" width="200" height="200 !important" class="">
+                    <img src="{{ asset('images/product/')}}/{{ $clubProduct->image }}" alt="" width="200" height="200 !important" class="">
                 </div>
                 <div class="col-md-9">
                     <br><br>

@@ -24,7 +24,7 @@
                 @foreach($clubProducts as $clubProduct)
                 <tr>
                     <td>{{  $clubProduct->id}}</td>
-                    <td ><img src="{{asset('productimages/')}}/{{  $clubProduct->image }}" alt="" width="100" class="img-fluid"></td>
+                    <td ><img src="{{asset('images/product')}}/{{  $clubProduct->image }}" alt="" width="100" class="img-fluid"></td>
                     <td>{{  $clubProduct->name }}</td>
                     <td>{{  $clubProduct->description }}</td>       
                     <td>{{  $clubProduct->price }}</td>
