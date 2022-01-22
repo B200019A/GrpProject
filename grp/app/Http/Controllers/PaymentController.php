@@ -16,27 +16,31 @@ class PaymentController extends Controller
         $this->middleware('auth');
 
     }
+    //when do the payment in payment.blade.php
     public function paymentPost(Request $request){
-	       
+	
+    //stripe api key
 	Stripe\Stripe::setApiKey('sk_test_51KA7pQBCZ2jtTw6ZfZ2bMI1UqjybOQrSVEsmFLywegUKqKNGOSb3l0bpKkUeQy629PlwK1U6HHBFJuNfUNCv5vhT002cIhkSyH');
+        //message send to stripe
         Stripe\Charge::create ([
 
                 "amount" => $request->amount*100, //RM10=10CEN 10*100=1000CEN
                 "currency" => "MYR",
                 "source" => $request->stripeToken,
-                "description" => "This payment is testing purpose of southern online",
+                "description" => "This payment is testing purpose of Society and Club",
         ]);
       
-
-        $OrderID=$request->input('orderID');
-        $Order=Order::find($OrderID);
-        $paymentStatus='done'; 
+        //update the order table for the payment status
+        $OrderID=$request->input('orderID');//get the orderid in <input name="?">
+        $Order=Order::find($OrderID);//find the order id in orders table
+        $paymentStatus='done'; //update spayment status to done in orders table
         $Order->paymentStatus=$paymentStatus; //binding the orderID value with record
         $Order->save();
-        
+
+        //send the email to mailtrap.com
         $email="jjlai0112@gmail.com";
         Notification::route('mail',$email)->notify(new \App\Notifications\orderPaid($email));
-
+        //done the payment and route to the myCart.blade.php
         return redirect()->route('myCart');
     }
 }

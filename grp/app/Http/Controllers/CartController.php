@@ -17,6 +17,7 @@ class CartController extends Controller
         $this->middleware('auth');
 
     }
+    //add new product to the carts table
     public function add(){
         $r=request();
         $addItem = Cart::create([
@@ -31,8 +32,12 @@ class CartController extends Controller
         ]);
         //get all products follow the clubid
         $products=Product::all()->where('clubid',$r->clubId);
-        //return to the club product page
-        return view('viewClubProduct')->with('products',$products);
+
+        //repeat calculate the total cart item
+        $this->cartItem();
+        
+        //return to the myCart.blade.php
+        return view('myCart')->with('products',$products);
     }
     public function view(){
 
@@ -44,28 +49,29 @@ class CartController extends Controller
 
         ->where('carts.orderID','=','') //the item haven't make payment
 
-        ->orwhere('carts.orderID','=','0')
-
         ->where('carts.userID','=',Auth::id())
+
         ->get();
 
+        //go to cartItem function to calculate the cart number
         $this->cartItem();
-        //select my_carts.quantity as cartQty,my_carts.id as cid, products.* from my_carts left join products on products.id=my_carts.productID where my_cart.orderID='' and my_carts.userID='Auth::id()'    
+        
         return view('myCart')->with('clubProducts',$carts);
 
     }
     public function cartItem(){
-            $cartItem=0;
-            $noItem=DB::TABLE('carts')
+
+            $cartItem=0;//initial value
+
+            $findItem=DB::TABLE('carts')
             ->leftjoin('products','products.id','=','carts.productID')
-            ->select(DB::raw('COUNT(*) as count_item '))
-            ->where('carts.orderID','=','')
-            ->orwhere('carts.orderID','=','0')
-            ->where('carts.userID','=',Auth::id())
+            ->select(DB::raw('COUNT(*) as count_item '))//calculate the cart item
+            ->where('carts.orderID','=','')//find the orderID equal empty
+            ->where('carts.userID','=',Auth::id())//follow the user id
             ->groupBy('carts.userID')
             ->first();
             if($noItem){
-                $cartItem=$noItem->count_item;
+                $cartItem=$findItem->count_item;
             }
             
             Session()->put('cartItem', $cartItem);

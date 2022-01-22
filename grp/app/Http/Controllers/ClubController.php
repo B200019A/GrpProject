@@ -11,11 +11,12 @@ class ClubController extends Controller
 {
     //add new club to the db
     public function addNewClub(){
+        
             $r=request();
             $image=$r->file('clubImage');//get the imgae 
             $image->move('images/club',$image->getClientOriginalName());//images is the location and save into localfile
             $imageName=$image->getClientOriginalName();
-    
+            //add new data to the clubs table
             $addClub = Club::create([
                 
                 'name'=>$r->clubName,
@@ -25,13 +26,16 @@ class ClubController extends Controller
                 'image'=>$imageName,
                 
             ]);
-            //Session::flash('success',"Product create sucessfully!");
+            //return view addClub.blade.php
             return view('addClub');
     }
+    
+    ////////////////////////////////crub function////////////////////////////////////////////
     //get the all club information to the manageclub page
     public function manageClub(){
-            $manageClub=DB::table('clubs')->get();
 
+            $manageClub=DB::table('clubs')->get();
+            //return view manageClub.blade.php
             return view('manageClub')->with('clubs',$manageClub);
 
 
@@ -39,12 +43,15 @@ class ClubController extends Controller
     }
     //follow the clubid get the all db to change page to editclub page 
     public function edit($id){
+
             $club=Club::all()->where('id',$id);
+             //return view editClub.blade.php
             return view('editClub')->with('clubs',$club);
 
     }
     //update the club information
     public function update(){
+
         $r=request();
         $clubs=Club::find($r->id);//find the id and update
         //if image no exist will be add
@@ -63,16 +70,18 @@ class ClubController extends Controller
         $clubs->image=$imageName;   
         $clubs->save();
 
-
+        //return view manageClub.blade.php when after update
         return redirect()->route('manageClub');
     }
 
     //follow the clubid and then delete the id all information from db
     public function delete($id){
+
         $deleteClub=Club::find($id);
 
         $deleteClub->delete();
-
+        //return view manageClub.blade.php when after delete
         return redirect()->route('manageClub');
     }
+    //crud end
 }

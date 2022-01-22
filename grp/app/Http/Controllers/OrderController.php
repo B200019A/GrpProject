@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
-USE Auth;
+use Auth;
+use PDF;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Club;
@@ -19,6 +20,7 @@ class OrderController extends Controller
         $this->middleware('auth');
 
     }
+    //create new order in myCart.blade.php 
     public function addOrder(Request $request){
         //add to orders databse
         $newOrder=Order::create([
@@ -57,26 +59,46 @@ class OrderController extends Controller
         //get the order follow the $ordernumber
         $orderAmount=DB::table('orders')->where('id','=', $orderNumber)->get();
 
+        //go to payment.blade.php and get the order item and order amount
         return view('payment')->with('orderItems',$orderItem)->with('orderAmounts', $orderAmount);
     }
-    /*public function deleteOrder(){
-        $r=request();
-        $id=$r->orderID;
 
-        //$deleteOrder=Order::find($r->amount);
-        $deleteOrder=DB::table('orders')->where('id','=', $id)->delete();
-        //$deleteOrder->delete();
+    //print all order data in viewOrder.blade.php
+    public function viewOrder(){
 
-        $items=$r->input('cid');
+        //select database table name is order
+        $orders=DB::table('orders')
 
-        foreach($items as $item=>$value){
-               $carts=Cart::find($value); //get the cart item record
-               $carts->orderID=''; //binding the orderID value with record
-               $carts->save();
+        ->select('orders.*')
+        ->where('orders.userID','=',Auth::id())//follow the account
+        ->where('orders.paymentStatus','=','done')//select the done payment order only
+        ->get();
+        //return view to the viewOrder.blade.php and orders table data
+        return view('viewOrder')->with('orders',$orders);
 
-        }
+    }
 
 
-        return redirect()->route('myCart');
-    }*/
+    public function printInvoice($id){
+
+        $OrderItem=DB::table('carts')
+
+        ->leftjoin('products','products.id','=','carts.productID')
+
+        ->select('carts.quantity as cartQty','carts.id as cid','products.*')
+
+        ->where('carts.orderID','=',$id) //the item haven't make payment
+
+        ->where('carts.userID','=',Auth::id())
+
+        ->get();
+
+        $orderAmount=DB::table('orders')->where('id','=', $id)->get(); //get the total amount for this order
+        
+        //return orders table data and carts table data to the invoicePDF.blade.php
+        $pdf = PDF::loadView('invoicePDF', compact('OrderItem','orderAmount'));
+        //dowload the pdf file 
+        return $pdf->download('OrderInvoice_report.pdf');
+    }
+    
 }

@@ -24,6 +24,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    //when in the home.blade.php show the all club information
     public function index()
     {
         //when open home page print all club in home page

@@ -10,12 +10,14 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
+    ////show all user infomation in profile.blade.php follow the user id 
     public function profile($userId){
         
         $User=User::all()->where('id', $userId);
+        //return view profile.blade.php
         return view('profile')->with('users', $User);
     }
-    public function update($userId){
+    /*public function update($userId){
         $r=request();
         $userReset=User::find($userId);
 
@@ -27,5 +29,5 @@ class ProfileController extends Controller
         $User=User::all()->where('id', $userId);
         Session::flash('successUpdate',"User Information update sucessfully!");
         return redirect()->route('profile')->with('users', $User);
-    }
+    }*/ //update later
 }

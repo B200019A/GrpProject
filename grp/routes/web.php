@@ -16,60 +16,47 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/loginPage', function () {
-    return view('loginPage');
-});
-
-Route::get('/registerPage', function () {
-    return view('registerPage');
-});
-
-Route::get('/layout', function () {
-    return view('layout');
-});
-Route::get('/index', function () {
-    return view('index');
-});
+//for the addClub.blade.php
 Route::get('/addClub', function () {
     return view('addClub');
 });
+//for the addClubProduct.blade.php and get the club id
 Route::get('/addClubProduct', function () {
     return view('addClubProduct',['clubId' => App\Models\Club::all()]);
 });
+//for the viewClubProduct.blade.php 
 Route::get('/viewClubProduct', function () {
     return view('viewClubProduct');
 });
+//for the clubProductDetail.blade.php 
 Route::get('/clubProductDetail', function () {
     return view('clubProductDetail');
+});
+//for the invoicePDF.blade.php 
+Route::get('/invoicePDF', function () {
+    return view('invoicePDF');
 });
 
 
 Auth::routes();
 
 
-
+//laravel initial code for the home.blade.php
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//testing login and register for myself
-//Route::get('/loginPage', [App\Http\Controllers\LoginController::class, 'change'])->name('loginPage');
-
-//Route::get('/registerPage', [App\Http\Controllers\RegisterController::class, 'change'])->name('registerPage');
-
-//Route::post('/registerPage/store', [App\Http\Controllers\RegisterController::class, 'add'])->name('addNewAccount');
-
-//Route::post('/index', [App\Http\Controllers\LoginController::class, 'check'])->name('checkStudentId');
-//end
-
-//get the user information 
+//get the user information in the profile.blade.php
 Route::get('/profile/{userId}', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
-// update the user information
-Route::post('/profile/{userId}', [App\Http\Controllers\ProfileController::class, 'update'])->name('updateInformation');
 
-//view the club product follow the club id
+// update the user information
+//Route::post('/profile/{userId}', [App\Http\Controllers\ProfileController::class, 'update'])->name('updateInformation');
+
+//view the club product follow the club id in the viewClubProduct.blade.php
 Route::get('/viewClubProduct/{id}', [App\Http\Controllers\ProductController::class, 'viewClubProduct'])->name('viewClubProduct');
 
-//club crud
+//view all product in product.blade.php
+Route::get('/product', [App\Http\Controllers\ProductController::class, 'product'])->name('product');
+
+//////////////////club crud//////////////////////////////////////////
 //manage club for checking
 Route::get('/manageClub', [App\Http\Controllers\ClubController::class, 'manageClub'])->name('manageClub');
 
@@ -84,9 +71,9 @@ Route::post('/updateClub', [App\Http\Controllers\ClubController::class, 'update'
 
 //delete the club
 Route::get('/deleteClub/{id}', [App\Http\Controllers\ClubController::class, 'delete'])->name('deleteClub');
+///////////////end crud///////////////////////////////////////////////
 
-
-//club product crud
+//////////////club product crud//////////////////////////////////////
 //manage club product for checking
 Route::get('/manageClubProduct', [App\Http\Controllers\ProductController::class, 'manageClubProduct'])->name('manageClubProduct');
 
@@ -101,23 +88,28 @@ Route::post('/updateClubProduct', [App\Http\Controllers\ProductController::class
 
 //delete the club
 Route::get('/deleteClubProduct/{id}', [App\Http\Controllers\ProductController::class, 'delete'])->name('deleteClubProduct');
+///////////////////////end crud////////////////////////////////////
 
-//product detail
+//product detail in clubProductDetail.blade.php
 Route::get('/clubProductDetail/{id}', [App\Http\Controllers\ProductController::class, 'clubProductDetail'])->name('clubProduct.Detail');
 
-//add to cart and update to database
+//add to cart and update to database and go back to the myCart.blade.php
 Route::post('/myCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart');
 
-//output all cart item in my cart page and follow user id
+//output all cart item in my cart page and follow user id in myCart.blade.php
 Route::get('/myCart', [App\Http\Controllers\CartController::class, 'view'])->name('myCart');
 
-//add order
+//add order and then go to payment.blade.php
 Route::post('/payment', [App\Http\Controllers\OrderController::class, 'addOrder'])->name('add.new.order');
 
-//delete order
-//Route::post('/myCart', [App\Http\Controllers\OrderController::class, 'deleteOrder'])->name('cancel.to.order');
-
-//create payment
+//create payment and done the payment will be back to myCart.blade.php
 Route::post('\myCart', [App\Http\Controllers\PaymentController::class, 'paymentPost'])->name('payment.post');
+
+//view all order for payment status done in viewOrder.blade.php
+Route::get('\viewOrder', [App\Http\Controllers\OrderController::class, 'viewOrder'])->name('viewOrder');
+
+//print invoice for pdf in the invoicePDF.blade.php
+Route::get('\invoicePDF/{id}', [App\Http\Controllers\OrderController::class, 'printInvoice'])->name('printInvoice');
+
 
 
