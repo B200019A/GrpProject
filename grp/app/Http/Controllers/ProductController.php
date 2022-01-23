@@ -128,5 +128,24 @@ class ProductController extends Controller
         //return view to the clubProductDetail.blade.php and send the product data
         return view('clubProductDetail')->with('clubProducts',$clubProducts);
     }
+    //search product follow the search keyword
+    public function searchProduct(){
+
+        $r=request();
+        $keyword=$r->keyword;
+ 
+        $product=DB::table('clubs')
+        //join the products table and products.clubid equal clubs.id
+        ->leftjoin('products','products.clubid','=','clubs.id')
+        //select the club name and club id in club table , select all product in products table
+        ->select('clubs.name as clubName','clubs.id as cid','products.*')
+        // match the keyword or like the keyword in products table data
+        ->where('products.name','like','%'.$keyword.'%')
+
+        ->get();
+        //return view product.blade.php
+        return view('product')->with('products', $product);
+
+    }
 
 }

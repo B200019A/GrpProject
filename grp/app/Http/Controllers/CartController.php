@@ -70,7 +70,7 @@ class CartController extends Controller
             ->where('carts.userID','=',Auth::id())//follow the user id
             ->groupBy('carts.userID')
             ->first();
-            if($noItem){
+            if($findItem){
                 $cartItem=$findItem->count_item;
             }
             

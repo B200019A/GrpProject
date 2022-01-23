@@ -111,5 +111,8 @@ Route::get('\viewOrder', [App\Http\Controllers\OrderController::class, 'viewOrde
 //print invoice for pdf in the invoicePDF.blade.php
 Route::get('\invoicePDF/{id}', [App\Http\Controllers\OrderController::class, 'printInvoice'])->name('printInvoice');
 
+//search club product
+Route::post('/product', [App\Http\Controllers\ProductController::class, 'searchProduct'])->name('searchProduct');
+
 
 

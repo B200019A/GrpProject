@@ -70,8 +70,9 @@
             @endguest
             </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+            <form action="{{route('searchProduct')}}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="POST" enctype="multipart/form-data">
+            @CSRF
+            <input type="search" name="keyword" id="keyword" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
             </form>
 
            <div class="text-end">
