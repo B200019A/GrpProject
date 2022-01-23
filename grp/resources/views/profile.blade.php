@@ -92,7 +92,7 @@
     <div class="col-sm-6">
         <br><br>
         <h3>Your Profile</h3>
-        <form action="" method="POST"  action="{{route('updateInformation',['userId'=>Auth::user()->id])}}"onsubmit="return validateReset()" enctype="multipart/form-data">
+        <form action="" method="POST"  action="" onsubmit="return validateReset()" enctype="multipart/form-data">
             @CSRF
             <div class="form-group">
             <a>Name:</a>
