@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
+*/
+
 //for the addClub.blade.php
 Route::get('/addClub', function () {
     return view('addClub');
@@ -55,6 +57,7 @@ Route::get('/viewClubProduct/{id}', [App\Http\Controllers\ProductController::cla
 
 //view all product in product.blade.php
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'product'])->name('product');
+Route::get('/', [App\Http\Controllers\ProductController::class, 'product'])->name('product');
 
 //////////////////club crud//////////////////////////////////////////
 //manage club for checking
@@ -91,7 +94,7 @@ Route::get('/deleteClubProduct/{id}', [App\Http\Controllers\ProductController::c
 ///////////////////////end crud////////////////////////////////////
 
 //product detail in clubProductDetail.blade.php
-Route::get('/clubProductDetail/{id}', [App\Http\Controllers\ProductController::class, 'clubProductDetail'])->name('clubProduct.detail');
+Route::get('/clubProductDetail/{id}', [App\Http\Controllers\ProductController::class, 'clubProductDetail'])->name('clubProduct.Detail');
 
 //add to cart and update to database and go back to the myCart.blade.php
 Route::post('/myCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart');
@@ -103,18 +106,10 @@ Route::get('/myCart', [App\Http\Controllers\CartController::class, 'view'])->nam
 Route::post('/payment', [App\Http\Controllers\OrderController::class, 'addOrder'])->name('add.new.order');
 
 //create payment and done the payment will be back to myCart.blade.php
-Route::post('\myCart', [App\Http\Controllers\PaymentController::class, 'paymentPost'])->name('payment.post');
+Route::post('/myCart', [App\Http\Controllers\PaymentController::class, 'paymentPost'])->name('payment.post');
 
 //view all order for payment status done in viewOrder.blade.php
-Route::get('\viewOrder', [App\Http\Controllers\OrderController::class, 'viewOrder'])->name('viewOrder');
+Route::get('/viewOrder', [App\Http\Controllers\OrderController::class, 'viewOrder'])->name('viewOrder');
 
 //print invoice for pdf in the invoicePDF.blade.php
-Route::get('\invoicePDF/{id}', [App\Http\Controllers\OrderController::class, 'printInvoice'])->name('printInvoice');
-
-//search club product
-Route::post('/product', [App\Http\Controllers\ProductController::class, 'searchProduct'])->name('searchProduct');
-
-//delete cart
-Route::get('/deleteCart/{id}', [App\Http\Controllers\ProductController::class, 'deleteCart'])->name('deleteCart');
-
-
+Route::get('/invoicePDF/{id}', [App\Http\Controllers\OrderController::class, 'printInvoice'])->name('printInvoice');
