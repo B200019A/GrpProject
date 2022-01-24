@@ -34,7 +34,7 @@ class PaymentController extends Controller
         $OrderID=$request->input('orderID');//get the orderid in <input name="?">
         $Order=Order::find($OrderID);//find the order id in orders table
         $paymentStatus='done'; //update spayment status to done in orders table
-        $Order->paymentStatus=$paymentStatus; //binding the orderID value with record
+        $Order->paymentStatus='done'; //binding the orderID value with record
         $Order->save();
 
         //send the email to mailtrap.com

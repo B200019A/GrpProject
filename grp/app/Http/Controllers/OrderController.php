@@ -48,7 +48,9 @@ class OrderController extends Controller
 
         ->leftjoin('products','products.id','=','carts.productID')
 
-        ->select('carts.quantity as cartQty','carts.id as cid','products.*')
+        ->leftjoin('clubs','clubs.id','=','carts.clubID')
+
+        ->select('carts.quantity as cartQty','carts.id as cid','products.*','clubs.name as clubName')
 
         ->where('carts.orderID','=',$orderNumber) //the item haven't make payment
 

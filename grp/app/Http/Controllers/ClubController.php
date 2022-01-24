@@ -26,8 +26,10 @@ class ClubController extends Controller
                 'image'=>$imageName,
                 
             ]);
-            //return view addClub.blade.php
-            return view('addClub');
+            //send a message for the app.blade.php to show the status message
+            Session::flash('successAddClub',"Club Add sucessfully!");
+            //return view manageClub.blade.php when after add
+            return redirect()->route('manageClub');
     }
     
     ////////////////////////////////crub function////////////////////////////////////////////
@@ -69,7 +71,9 @@ class ClubController extends Controller
         $clubs->contact=$r->contact;
         $clubs->image=$imageName;   
         $clubs->save();
-
+        
+        //send a message for the app.blade.php to show the status message
+        Session::flash('successUpdateClub',"Club Update sucessfully!");
         //return view manageClub.blade.php when after update
         return redirect()->route('manageClub');
     }

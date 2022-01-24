@@ -17,11 +17,11 @@
                         <div class="card h-100">
                             <div class="card-body">
                             <h5 class="card-title">{{  $product->name }}</h5>
-                            <a href="{{route('clubProduct.Detail',['id'=>$product->id])}}"><img src="{{asset('images/product/')}}/{{  $product->image }}" alt="" width="100" class="img-fluid"><a>
+                            <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><img src="{{asset('images/product/')}}/{{  $product->image }}" alt="" width="100" class="img-fluid"><a>
                        
                             <a>Club: {{$product->clubName}}</a>
                             
-                            <div class="card-heading">RM {{  $product->price }}<a href="{{route('clubProduct.Detail',['id'=>$product->id])}}"><button type="submit" style="float:right;" class="btn btn-danger btn-xs">View Detail</button><a></div>
+                            <div class="card-heading">RM {{  $product->price }}<a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><button type="submit" style="float:right;" class="btn btn-danger btn-xs">View Detail</button><a></div>
                         </div>
                         </div>
                     </div>

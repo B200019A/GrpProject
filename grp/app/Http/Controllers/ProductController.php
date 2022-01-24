@@ -29,9 +29,10 @@ class ProductController extends Controller
             'image'=>$imageName,
             
         ]);
-        //return club id to addClubProduct.blade.php
-        $clubId=Club::all();
-        return view('addClubProduct')->with('clubId',$clubId);
+        //send a message for the app.blade.php to show the status message
+        Session::flash('successAddProduct',"Product add sucessfully!");
+        //return route to the manageClubProduct.blade.php
+        return redirect()->route('manageClubProduct');
 
     }
 
@@ -47,13 +48,13 @@ class ProductController extends Controller
     //show all product in product.blade.php
     public function product(){
 
-        //select the clubs table in db
-        $products=DB::table('clubs')
+        //select the products table in db
+        $products=DB::table('products')
         //join the products table and products.clubid equal clubs.id
-        ->leftjoin('products','products.clubid','=','clubs.id')
+        ->leftjoin('clubs','clubs.id','=','products.clubid')
         //select the club name and club id in club table , select all product in products table
         ->select('clubs.name as clubName','clubs.id as cid','products.*')
-        
+
         ->get();
 
         //return view product.blade.php
@@ -109,6 +110,8 @@ class ProductController extends Controller
         $clubProducts->image=$imageName;   
         $clubProducts->save();
 
+        //send a message for the app.blade.php to show the status message
+        Session::flash('successUpdateProduct',"Product update sucessfully!");
         //return route to the manageClubProduct.blade.php
         return redirect()->route('manageClubProduct');
     }

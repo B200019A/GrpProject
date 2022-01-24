@@ -9,23 +9,24 @@
         <form action="{{route('addNewClub')}}" method="POST" enctype="multipart/form-data">
             @CSRF
             <div class="form-group">
-            <a>Club&Society Name</a>
+           
+            <label for="clubName">Club&Society Name</label>
             <input class="form-control" type="text" id="clubName" name="clubName" required>
             </div>
             <div class="form-group">
-            <a>Description</a>
+            <label for="clubDescription">Description</label>
             <input class="form-control" type="text" id="clubDescription" name="clubDescription" required>
             </div>
             <div class="form-group">
-            <a>President</a>
+            <label for="president">President</label>
             <input class="form-control" type="double" id="president" name="president" min="0" required>
             </div>
             <div class="form-group">
-            <a>Contact</a>
+            <label for="contact">Contact</label>
             <input class="form-control" type="number" id="contact" name="contact" min="0" required>
             </div>
             <div class="form-group">
-            <a>Image</a>
+            <label for="clubImage">Image</label>
             <input class="form-control" type="file" id="clubImage" name="clubImage" required>
             </div>
       

@@ -37,7 +37,7 @@ class CartController extends Controller
         $this->cartItem();
         
         //return to the myCart.blade.php
-        return view('myCart')->with('products',$products);
+        return redirect()->route('myCart');
     }
     public function view(){
 
@@ -45,13 +45,17 @@ class CartController extends Controller
 
         ->leftjoin('products','products.id','=','carts.productID')
 
-        ->select('carts.quantity as cartQty','carts.id as cid','products.*')
+        ->leftjoin('clubs','clubs.id','=','carts.clubID')
+  
+        ->select('carts.quantity as cartQty','carts.id as cid','products.*','clubs.name as clubName')
 
         ->where('carts.orderID','=','') //the item haven't make payment
 
         ->where('carts.userID','=',Auth::id())
 
         ->get();
+
+
 
         //go to cartItem function to calculate the cart number
         $this->cartItem();
@@ -75,5 +79,13 @@ class CartController extends Controller
             }
             
             Session()->put('cartItem', $cartItem);
+    }
+    public function deleteCart($id){
+
+        $deleteCart=Cart::find($id);
+
+        $deleteCart->delete();
+        //return route to the manageClubProduct.blade.php
+        return redirect()->route('myCart');
     }
 }

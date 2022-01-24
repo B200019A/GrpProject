@@ -47,6 +47,27 @@
 
   
     <body>
+    @if(Session::has('successAddProduct'))
+    <div class="alert alert-success" role="alert">
+      {{Session::get('successAddProduct')}}
+    </div>
+    @endif
+    @if(Session::has('successUpdateProduct'))
+    <div class="alert alert-success" role="alert">
+      {{Session::get('successUpdateProduct')}}
+    </div>
+    @endif
+    @if(Session::has('successAddClub'))
+    <div class="alert alert-success" role="alert">
+      {{Session::get('successAddClub')}}
+    </div>
+    @endif
+    @if(Session::has('successUpdateClub'))
+    <div class="alert alert-success" role="alert">
+      {{Session::get('successUpdateClub')}}
+    </div>
+    @endif
+
         <header class="p-3 bg-white text-dark shadow-sm">
         <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -79,12 +100,15 @@
            @guest
                 @if (Route::has('login'))                   
                      <a href="{{route('login')}}"><button type="submit" herf="{{route('login')}}" class="btn btn-outline-dark me-2">Login</button></a>
-                     @endif
-                     @if (Route::has('register'))
+                @endif
+                @if (Route::has('register'))
                     <a  href="{{route('register')}}"><button type="submit"  href="{{route('register')}}" class="btn btn-warning">Sign-up</button><a>
 
                     @endif
-                        @else
+                @else
+                        @if (Auth::user()->id ==7)
+                          <li><a href="#" class="nav-link px-2 text-dark">Admin</a></li>
+                        @endif
                             <div class="dropdown text-end">
                         
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -105,7 +129,7 @@
                                 </li>
                             </ul>
                             </div>
-                        @endguest
+            @endguest
             </div>
         </div>
         </div>

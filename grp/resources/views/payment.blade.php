@@ -11,7 +11,6 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td>Cart ID</td>
                         <td>Image</td>
                         <td>clubId</td>
                         <td>Name</td>
@@ -23,23 +22,22 @@
                 <tbody>
                      @foreach($orderItems as $orderItem)
                     <tr>
-                        <td><input type="text" name="cid" id="cid" value="{{ $orderItem->cid}}"> </td>
+                        <input type="hidden" name="cid" id="cid" value="{{ $orderItem->cid}}">
                         <td>
                         <input type="hidden" name="subtotal[]" id="subtotal[]" value="{{ $orderItem->price*$orderItem->cartQty}}"> 
                             <img src="{{ asset('images/product/')}}/{{ $orderItem->image }}" alt="" width="100" class="img-fluid"></td>
-                            <td>{{  $orderItem->clubid }}</td>
+                            <td>{{  $orderItem->clubName }}</td>
                             <td>{{  $orderItem->name }}</td>    
-                            <td>{{  $orderItem->price }}</td>
+                            <td>RM{{  $orderItem->price }}</td>
                             <td>{{  $orderItem->cartQty }}</td>
-                            <td  onclick="cal()">{{  $orderItem->price*$orderItem->cartQty}}</td>
+                            <td  onclick="cal()">RM{{  $orderItem->price*$orderItem->cartQty}}</td>
                     </tr> 
                     @endforeach
                     @foreach($orderAmounts as $orderAmount)
                     <tr align="right">
-                        <td colspan="6">&nbsp;</td>
+                        <td colspan="5">&nbsp;</td>
                         <td>Total: RM<i> </i> <input type="text" value="{{$orderAmount->amount}}" name="amount" id="amount" size="7" readonly />
-                        <input type="text" value="{{$orderAmount->id}}" name="orderID" id="orderID" size="7" readonly />
-
+                        <input type="hidden" value="{{$orderAmount->id}}" name="orderID" id="orderID" size="7" readonly />
                     </tr>
                     @endforeach
                 </tbody>
