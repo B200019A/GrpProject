@@ -91,7 +91,7 @@ Route::get('/deleteClubProduct/{id}', [App\Http\Controllers\ProductController::c
 ///////////////////////end crud////////////////////////////////////
 
 //product detail in clubProductDetail.blade.php
-Route::get('/clubProductDetail/{id}', [App\Http\Controllers\ProductController::class, 'clubProductDetail'])->name('clubProduct.Detail');
+Route::get('/clubProductDetail/{id}', [App\Http\Controllers\ProductController::class, 'clubProductDetail'])->name('clubProduct.detail');
 
 //add to cart and update to database and go back to the myCart.blade.php
 Route::post('/myCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart');
@@ -114,5 +114,7 @@ Route::get('\invoicePDF/{id}', [App\Http\Controllers\OrderController::class, 'pr
 //search club product
 Route::post('/product', [App\Http\Controllers\ProductController::class, 'searchProduct'])->name('searchProduct');
 
+//delete cart
+Route::get('/deleteCart/{id}', [App\Http\Controllers\ProductController::class, 'deleteCart'])->name('deleteCart');
 
 

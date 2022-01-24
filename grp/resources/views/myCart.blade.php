@@ -34,6 +34,7 @@
                     <td>Price</td>
                     <td>Quantity</td>
                     <td>Subtotal</td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -46,18 +47,20 @@
                     <input type="hidden" name="productID" id="productID" value="{{ $clubProduct->id}}">
                     <img src="{{asset('images/product/')}}/{{  $clubProduct->image }}" alt="" width="100" class="img-fluid">
                     </td>
-                    <td>{{  $clubProduct->clubid }}</td>
+                    <td>{{  $clubProduct->clubName }}</td>
                     <td>{{  $clubProduct->name }}</td>    
                     <td>{{  $clubProduct->price }}</td>
-                    <td>{{  $clubProduct->cartQty }}</td>
+                    <!--<td>  <input type="number" name="cartQuantity" id="cartQuantity" value="{{  $clubProduct->cartQty }}" max="{{$clubProduct->quantity}}"></td>-->
+                    <td>{{$clubProduct->cartQty}}</td>
                     <td>{{  $clubProduct->price*$clubProduct->cartQty}}</td>
+                    
 
                 </tr>  
                 @endforeach
                 <tr align="right">
                         <td colspan="5">&nbsp;</td>         
                         <td>RM<i> </i> <input type="text" value="0" name="sub" id="sub" size="7" readonly /></td>
-
+                      
                 </tr>
 
                 <tr align="right">
