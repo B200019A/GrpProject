@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Club & Society  Online System</title>
+    <title>SouthernUC Club and Society</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -47,36 +47,15 @@
 
   
     <body>
-    @if(Session::has('successAddProduct'))
-    <div class="alert alert-success" role="alert">
-      {{Session::get('successAddProduct')}}
-    </div>
-    @endif
-    @if(Session::has('successUpdateProduct'))
-    <div class="alert alert-success" role="alert">
-      {{Session::get('successUpdateProduct')}}
-    </div>
-    @endif
-    @if(Session::has('successAddClub'))
-    <div class="alert alert-success" role="alert">
-      {{Session::get('successAddClub')}}
-    </div>
-    @endif
-    @if(Session::has('successUpdateClub'))
-    <div class="alert alert-success" role="alert">
-      {{Session::get('successUpdateClub')}}
-    </div>
-    @endif
-
-        <header class="p-3 bg-white text-dark shadow-sm">
+        <header class="p-3 bg-white text-dark">
         <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">SouthernUC Club and Society
             <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="{{route('home')}}" class="nav-link px-2 text-dark">Home</a></li>
+            <li><a href="{{route('home')}}" class="nav-link px-2 text-dark">Society & Club</a></li>
             <li><a href="#" class="nav-link px-2 text-dark">Features</a></li>
             
             
@@ -87,28 +66,24 @@
             @else
             <li><a href="{{route('product')}}" class="nav-link px-2 text-dark">Product</a></li>
             <li><a href="{{route('viewOrder')}}" class="nav-link px-2 text-dark">My Order</a></li>
-            <li><a href="{{route('myCart')}}" class="nav-link px-2 text-dark">MyCart  <span class="badge bg-danger">{{Session()->get('cartItem')}}</span></a></li>
+            <li><a href="{{route('myCart')}}" class="nav-link px-2 text-dark">MyCart<span class="badge bg-danger">{{Session()->get('cartItem')}}</span></a></li>
             @endguest
             </ul>
 
-            <form action="{{route('searchProduct')}}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="POST" enctype="multipart/form-data">
-            @CSRF
-            <input type="search" name="keyword" id="keyword" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
             </form>
 
            <div class="text-end">
            @guest
                 @if (Route::has('login'))                   
                      <a href="{{route('login')}}"><button type="submit" herf="{{route('login')}}" class="btn btn-outline-dark me-2">Login</button></a>
-                @endif
-                @if (Route::has('register'))
+                     @endif
+                     @if (Route::has('register'))
                     <a  href="{{route('register')}}"><button type="submit"  href="{{route('register')}}" class="btn btn-warning">Sign-up</button><a>
 
                     @endif
-                @else
-                        @if (Auth::user()->id ==7)
-                          <li><a href="#" class="nav-link px-2 text-dark">Admin</a></li>
-                        @endif
+                        @else
                             <div class="dropdown text-end">
                         
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -129,15 +104,34 @@
                                 </li>
                             </ul>
                             </div>
-            @endguest
+                        @endguest
             </div>
         </div>
         </div>
     </header>
-    <main class="py-4">
+    <main class="py-4-edit">
             @yield('content')
     </main>
-    
+    <div class="bottom-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <p style="text-align: center;">SouthernUC Club and Society ©
+ <script>document.write(new Date().getFullYear());</script> All Rights Reserved</p>
+ <br>
+            </div>
+            </div>
+
+            <!-- <div class="col-md-6 col-lg-6">
+                <ul class="social-links">
+                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                    <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
     
     
     <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4086.3313385770116!2d103.67968244610438!3d1.5336412506508394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da73c109632e0b%3A0x74cda51bf210c304!2z5Y2X5pa55aSn5a2m5a2m6Zmi!5e0!3m2!1szh-CN!2smy!4v1642170336972!5m2!1szh-CN!2smy"
