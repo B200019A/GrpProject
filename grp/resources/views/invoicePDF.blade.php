@@ -144,7 +144,7 @@
 				</tr>
                 @foreach($OrderItem as $OrderItems)
 				<tr class="item">
-					<td>      RM{{ $OrderItems->name }} X{{ $OrderItems->cartQty }}</td>
+					<td>      {{ $OrderItems->name }} X{{ $OrderItems->cartQty }}</td>
 
 					<td>      RM{{ $OrderItems->price }}</td>
 				</tr>

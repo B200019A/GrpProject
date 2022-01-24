@@ -40,6 +40,14 @@ Route::get('/invoicePDF', function () {
 
 Auth::routes();
 
+//for admin side
+//for the addClub.blade.php
+Route::get('/addClub', [App\Http\Controllers\ClubController::class, 'viewAddClub'])->name('addClub');
+//for the addClubProduct.blade.php and get the club id
+Route::get('/addClubProduct', [App\Http\Controllers\ProductController::class, 'viewAddClubProduct'])->name('addClubProduct');
+
+//end admin side
+
 
 //laravel initial code for the home.blade.php
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -115,6 +123,6 @@ Route::get('\invoicePDF/{id}', [App\Http\Controllers\OrderController::class, 'pr
 Route::post('/product', [App\Http\Controllers\ProductController::class, 'searchProduct'])->name('searchProduct');
 
 //delete cart
-Route::get('/deleteCart/{id}', [App\Http\Controllers\ProductController::class, 'deleteCart'])->name('deleteCart');
+Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'deleteCart'])->name('deleteCart');
 
 

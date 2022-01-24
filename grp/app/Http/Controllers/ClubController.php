@@ -9,6 +9,10 @@ use App\Models\Club;
 
 class ClubController extends Controller
 {
+    public function viewAddClub (){
+
+        return view('addClub');
+    }
     //add new club to the db
     public function addNewClub(){
         

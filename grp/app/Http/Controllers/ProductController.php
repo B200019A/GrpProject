@@ -10,6 +10,11 @@ use App\Models\Club;
 
 class ProductController extends Controller
 {
+    public function viewAddClubProduct(){
+        
+        $club=Club::all();
+        return view('addClubProduct')->with('clubId',$club);
+    }
     //add new clubProduct to the db
     public function addNewProduct(){
 

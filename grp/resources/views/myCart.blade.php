@@ -53,7 +53,7 @@
                     <!--<td>  <input type="number" name="cartQuantity" id="cartQuantity" value="{{  $clubProduct->cartQty }}" max="{{$clubProduct->quantity}}"></td>-->
                     <td>{{$clubProduct->cartQty}}</td>
                     <td>{{  $clubProduct->price*$clubProduct->cartQty}}</td>
-                    
+                    <td><a href="{{route('deleteCart',['id'=>$clubProduct->cid])}}" class="btn btn-warning btn-xs">Delete</a>
 
                 </tr>  
                 @endforeach
