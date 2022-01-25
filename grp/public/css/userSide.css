@@ -195,3 +195,71 @@ p {
     text-decoration: underline;
     color: black;
 }
+
+/* My Cart Page */
+td, th {
+    padding: 20px 15px 20px 15px;
+    text-align: left;
+    border-bottom: 2px solid rgba(250, 231, 207, 0.685);
+}
+th {
+    font-size: 1.2rem;
+    font-family: "Times New Roman", Times, serif;
+}
+thead {
+    background-color: rgba(255, 228, 196, 0.685);
+}
+.cart-table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 5px;
+    outline: thick solid rgba(250, 231, 207, 0.685);
+    padding-left: 5px; padding-right: 5px;
+}
+#CartItemquantity {
+    width:50px;
+}
+.delete-btn {
+    font-size: 1.2rem;
+    padding: 5px 20px 5px 20px;
+    border: 1px #f06f58 solid;
+    background-color: transparent;
+    color: #f06f58;
+    transition: 0.3s;
+}
+.submit-btn {
+    font-size: 1.1rem;
+    padding: 4px 15px 4px 15px;
+    border: 1px #1fa6f5 solid;
+    background-color: transparent;
+    color: #1fa6f5;
+    margin-top: 10px;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+.submit-btn:hover {
+    color: white;
+    background-color: #1fa6f5;
+}
+.submit-btn:active {
+    background-color: #0075b9;
+    border: 1px #0075b9 solid;
+}
+.item-data {
+    transition: 0.5s;
+}
+.item-data:hover {
+    background-color:rgba(250, 236, 220, 0.548);
+}
+.item-data:hover .delete-btn {
+    color: white;
+    background-color: #f06f58;
+}
+.item-data:hover .delete-btn:hover {
+    background-color: #fa3613;
+    border: 1px #fa3613 solid;
+}
+.item-data:hover .delete-btn:active {
+    background-color: #852a1b;
+    border: 1px #852a1b solid;
+}
