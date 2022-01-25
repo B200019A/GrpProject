@@ -44,9 +44,10 @@ class ProductController extends Controller
     //show all product in viewClubProduct.blade.php follow the club id
     public function viewClubProduct($id){
 
+        $club=Club::all()->where('id',$id);
         $products=Product::all()->where('clubid',$id);//select all product in product table follow the club id
         //return the viewClubProduct.php
-        return view('viewClubProduct')->with('products', $products);
+        return view('viewClubProduct')->with('products', $products)->with('clubs',$club);
 
     }
 

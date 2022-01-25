@@ -125,4 +125,10 @@ Route::post('/product', [App\Http\Controllers\ProductController::class, 'searchP
 //delete cart
 Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'deleteCart'])->name('deleteCart');
 
+//modify cart item quantity
+Route::post('/myCart/{id}', [App\Http\Controllers\CartController::class, 'modifyCartItemQuantity'])->name('modifyCartItemQuantity');
+
+
+
+
 

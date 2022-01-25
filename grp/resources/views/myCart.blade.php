@@ -13,8 +13,10 @@
         }
         document.getElementById('sub').value=subtotal.toFixed(2); //convert 2 decimal place      
     }
-   // var checkbox =document.getElementsByName('cid[]');
-    
+    function submit(){
+
+        form.submit()
+    }
      
 </script>
 
@@ -27,7 +29,8 @@
        <br><br>
        <table class="table table-bordered">
             <thead>
-                <tr>                   
+                <tr>
+                    <td>Cart Id</td>               
                     <td>Image</td>
                     <td>Club Id</td>
                     <td>Name</td>
@@ -40,7 +43,7 @@
             <tbody>
                 @foreach($clubProducts as $clubProduct)
                 <tr>
-                   
+                    <td>{{ $clubProduct->cid}}</td>   
                     <td>
                     <input type="checkbox" name="cid[]" id="cid[]" value="{{ $clubProduct->cid}}" onclick="cal()">
                     <input type="hidden" name="subtotal[]" id="subtotal[]" value="{{ $clubProduct->price*$clubProduct->cartQty}}">
@@ -51,20 +54,29 @@
                     <td>{{  $clubProduct->name }}</td>    
                     <td>{{  $clubProduct->price }}</td>
                     <!--<td>  <input type="number" name="cartQuantity" id="cartQuantity" value="{{  $clubProduct->cartQty }}" max="{{$clubProduct->quantity}}"></td>-->
-                    <td>{{$clubProduct->cartQty}}</td>
+                    
+                    @CSRF
+                    <td>
+                    <form action="{{route('modifyCartItemQuantity',['id'=>$clubProduct->cid])}}" method="POST" enctype="multipart/form-data">
+                    @CSRF
+                        <input type="number" max="{{ $clubProduct->quantity }}" id="CartItemquantity" name="CartItemquantity" value="{{$clubProduct->cartQty}}" onchange="form.submit()" >
+                    </form>
+                    </td>               
+                
+                    
                     <td>{{  $clubProduct->price*$clubProduct->cartQty}}</td>
                     <td><a href="{{route('deleteCart',['id'=>$clubProduct->cid])}}" class="btn btn-warning btn-xs">Delete</a>
 
                 </tr>  
                 @endforeach
                 <tr align="right">
-                        <td colspan="5">&nbsp;</td>         
+                        <td colspan="6">&nbsp;</td>         
                         <td>RM<i> </i> <input type="text" value="0" name="sub" id="sub" size="7" readonly /></td>
                       
                 </tr>
 
                 <tr align="right">
-                        <td colspan="5">&nbsp;</td>
+                        <td colspan="6">&nbsp;</td>
                         <td><button type="submit" class="btn btn-primary">Check Out</button></td>
 
                 </tr>

@@ -1,43 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-    <div style="margin-top:10px; margin-bottom:10px">
-    <div class="row">
-        <div class="col-sm-2"></div>
-            <div class="col-md-8">
-            <div class="card">
-                <div class="card-title"style="margin-left:20px;"><h4>Club&Society</h4></div> 
 
-                <div style="margin-left:20px; margin-right:20px;  "><!--adjust margin strat-->
-                <div class="row">
-                
-                    @foreach($products as $product)
-    
-                    <div class="col-sm-4" style="margin-top:10px">
-                        <div class="card h-100">
-                            <div class="card-body">
-                            <h5 class="card-title">{{  $product->name }}</h5>
-                            <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><img src="{{asset('images/product/')}}/{{  $product->image }}" alt="" width="100" class="img-fluid"><a>
-                       
-                            <a>Club: {{$product->clubName}}</a>
-                            
-                            <div class="card-heading">RM {{  $product->price }}<a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><button type="submit" style="float:right;" class="btn btn-danger btn-xs">View Detail</button><a></div>
+<!-- Styles -->
+<link href="{{ asset('css/userSide.css') }}" rel="stylesheet">
+
+<div class="row products-container">
+    <div class="row products-title">
+        <br>
+        <h4 class="page-title">Products</h4>
+        <br>
+    </div> 
+
+    <div class="col-sm-2"></div>
+    <div class="col-md-8">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach($products as $product)
+            <div class="col-md-4 products-layout"> <!-- each card occupy 4 spaces -->
+                <div class="card products">
+                    <div class="card-body d-flex flex-column mt-auto">
+                        <h5 class="card-title product-name">{{ $product->name }}</h5>
+                        <input type="hidden" name="id" value="{{ $product->id }}">
+                        <div style="height:150px;">
+                            <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><img src="{{asset('images/product/')}}/{{  $product->image }}" alt="{{ $product->name }}" class="club-image"><a>
                         </div>
+                        <div style="margin-top:10px;">
+                            <div class="product-price">Price:  RM {{  $product->price }}</div>
+                            <a href="{{route('viewClubProduct',['id'=>$product->clubid])}}" class="products-club">Club:  {{$product->clubName}}</a> <br>
+                            <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><button type="submit" style="float:center;" class="enter-btn">View Detail</button></a>
                         </div>
                     </div>
-        
-                    @endforeach
-                    
-                    &nbsp;
-                </div>
-                </div><!--adjust margin end-->
                 </div>
             </div>
-
-    
-        
-        <div class="col-sm-2"></div>
+            @endforeach
+        </div>
     </div>
-    </div>
+    <div class="col-sm-2"></div>
+</div>
 
 @endsection

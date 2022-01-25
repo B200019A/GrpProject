@@ -67,7 +67,6 @@
       {{Session::get('successUpdateClub')}}
     </div>
     @endif
-
         <header class="p-3 bg-white text-dark shadow-sm">
         <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -148,7 +147,7 @@
         </div>
         </div>
     </header>
-    <main class="py-4">
+    <main>
             @yield('content')
     </main>
     

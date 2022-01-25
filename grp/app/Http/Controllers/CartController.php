@@ -80,12 +80,33 @@ class CartController extends Controller
             
             Session()->put('cartItem', $cartItem);
     }
+    //delete cart item
     public function deleteCart($id){
 
         $deleteCart=Cart::find($id);
 
         $deleteCart->delete();
-        //return route to the manageClubProduct.blade.php
+        //return route to the myCart.blade.php
         return redirect()->route('myCart');
     }
+
+    //modify cart item quantity
+    public function modifyCartItemQuantity($id){
+
+        $r=request();
+        //find the cart id in the cart table
+        $quantity=$r->input('CartItemquantity');
+        $modifyQuantity=Cart::find($id);
+       
+        $modifyQuantity->quantity=$quantity; 
+
+        $modifyQuantity->save();
+        
+       
+        return redirect()->route('myCart');
+        
+
+        
+    }
+
 }
