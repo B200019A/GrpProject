@@ -31,8 +31,8 @@
                     <td>{{  $clubProduct->quantity }}</td>
                     <td>{{   $clubProduct->clubName}}</td>
                     <td>{{   $clubProduct->typeId}}</td>
-                    <td><a href="{{route('editClubProduct',['id'=>$clubProduct->id])}}" class="btn btn-warning btn-xs">Edit</a>
-                    <a href="{{route('deleteClubProduct',['id'=>$clubProduct->id])}}" class="btn btn-danger btn-xs" onClick="return confirm('Are you sure to delete?')">Delete</a></td>
+                    <td><a href="{{route('editClubProduct',['id'=>$clubProduct->id])}}" style="width:80px;margin-bottom:5px;" class="btn btn-warning btn-xs">Edit</a>
+                    <a href="{{route('deleteClubProduct',['id'=>$clubProduct->id])}}" class="btn btn-danger btn-xs" style="width:80px;" onClick="return confirm('Are you sure to delete?')">Delete</a></td>
                 </tr>  
                 @endforeach
             

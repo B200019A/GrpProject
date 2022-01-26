@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
             <a>Product Image</a>
-            <input class="form-control" type="file" id="clubProductImage" name="clubProductImage" required>
+            <input class="form-control" type="file" id="clubProductImage" name="clubProductImage">
             </div>
       
             <button type="submit" class="btn btn-primary">Edit Club&Society Product</button>

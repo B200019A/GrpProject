@@ -2,9 +2,6 @@
 
 @section('content')
 
-<!-- Styles -->
-<link href="{{ asset('css/userSide.css') }}" rel="stylesheet">
-
 <div class="row products-container">
     <div class="row products-title">
         <br>
@@ -16,7 +13,7 @@
     <div class="col-md-8">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach($products as $product)
-            <div class="col-md-4 products-layout"> <!-- each card occupy 4 spaces -->
+            <div class="col-md-3 products-layout"> <!-- each card occupy 4 spaces -->
                 <div class="card products">
                     <div class="card-body d-flex flex-column mt-auto">
                         <h5 class="card-title product-name">{{ $product->name }}</h5>

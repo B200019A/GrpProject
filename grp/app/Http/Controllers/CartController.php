@@ -18,7 +18,7 @@ class CartController extends Controller
 
     }
     //add new product to the carts table
-    public function add(){
+    public function addCart(){
         $r=request();
         $addItem = Cart::create([
 
@@ -94,11 +94,13 @@ class CartController extends Controller
     public function modifyCartItemQuantity($id){
 
         $r=request();
+        //$id=$request->input('cartId');
+        //$quantity=$request->input('CartItemquantity');
         //find the cart id in the cart table
-        $quantity=$r->input('CartItemquantity');
+        //$quantity=$r->input('CartItemquantity');
         $modifyQuantity=Cart::find($id);
        
-        $modifyQuantity->quantity=$quantity; 
+        $modifyQuantity->quantity=$r->CartItemquantity; 
 
         $modifyQuantity->save();
         

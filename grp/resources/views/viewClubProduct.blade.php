@@ -34,14 +34,14 @@
                 <div class="col-md-4" style="padding-right:20px;padding-left:20px;"> 
                     <div class="card products">
                         <div class="card-body d-flex flex-column mt-auto">
-                            <h5 class="card-title product-name">{{ $club->name }}</h5>
+                            <h5 class="card-title product-name">{{ $product->name }}</h5>
                             <input type="hidden" name="id" value="{{ $club->id }}">
                             <div style="height:150px;">
                                 <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><img src="{{asset('images/product/')}}/{{  $product->image }}" alt="" class="product-image"></a>
                             </div>
                             <div style="margin-top:10px;">
                                 <div class="product-price">RM {{  $product->price }}</div>
-                                <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><button type="submit" style="float:center;" class="enter-btn">View Detail</button></a>
+                                <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><button type="submit" style="text-align:center;" class="enter-btn">View Detail</button></a>
                             </div>
                         </div>
                     </div>

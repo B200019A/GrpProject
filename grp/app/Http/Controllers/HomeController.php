@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use App\Models\Club;
-
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -28,8 +28,15 @@ class HomeController extends Controller
     public function index()
     {
         //when open home page print all club in home page
-        $showClub=DB::table('clubs')->get();
-        (new CartController)->cartItem();
-        return view('home')->with('clubs', $showClub);
+        if(Auth::user()->id==7){
+            $showClub=DB::table('clubs')->get();
+            return redirect()->route('addClub');
+        }else{
+            $showClub=DB::table('clubs')->get();
+            (new CartController)->cartItem();
+            return view('home')->with('clubs', $showClub);
+        }
+       
+     
     }
 }

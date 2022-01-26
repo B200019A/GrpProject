@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/userSide.css') }}" rel="stylesheet">
 
     <!--do my self-->
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -70,22 +70,22 @@
         <header class="p-3 bg-white text-dark shadow-sm">
         <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <a href="{{route('home')}}" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">SouthernUC Club and Society
             <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             @guest
-            <li><a href="" class="nav-link px-2 text-dark">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-dark">Product</a></li>
-            <li><a href="" class="nav-link px-2 text-dark">My Order</a></li>
-            <li><a href="#" class="nav-link px-2 text-dark">MyCart</a></li>
+            <li class="nav-item-motion"><a href="" class="nav-link px-2 text-dark">Society & Club</a></li>
+            <li class="nav-item-motion"><a href="#" class="nav-link px-2 text-dark">Product</a></li>
+            <li class="nav-item-motion"><a href="" class="nav-link px-2 text-dark">My Order</a></li>
+            <li class="nav-item-motion"><a href="#" class="nav-link px-2 text-dark">MyCart</a></li>
             @else
             @if (Auth::user()->id ==7)
-                          <li><a href="{{route('home')}}" class="nav-link px-2 text-dark">Admin</a></li>
-                          <li><a href="{{route('addClub')}}" class="nav-link px-2 text-dark">AddClub</a></li>
-                          <li><a href="{{route('addClubProduct')}}" class="nav-link px-2 text-dark">AddClubProduct</a></li>
+                          <li class="nav-link px-2" style="color:chocolate; font-weight:bold; font-size:17px;">Admin</li>
+                          <li class="nav-item-motion"><a href="{{route('addClub')}}" class="nav-link px-2 text-dark">AddClub</a></li>
+                          <li class="nav-item-motion"><a href="{{route('addClubProduct')}}" class="nav-link px-2 text-dark">AddClubProduct</a></li>
 
-                          <li>
+                          <li class="nav-item-motion">
                           <a href="#" class="nav-link px-2 text-dark  dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                  Manage
                           </a>
@@ -99,10 +99,10 @@
                        
             @else
             
-            <li><a href="{{route('home')}}" class="nav-link px-2 text-dark">Home</a></li>
-            <li><a href="{{route('product')}}" class="nav-link px-2 text-dark">Product</a></li>
-            <li><a href="{{route('viewOrder')}}" class="nav-link px-2 text-dark">My Order</a></li>
-            <li><a href="{{route('myCart')}}" class="nav-link px-2 text-dark">MyCart  <span class="badge bg-danger">{{Session()->get('cartItem')}}</span></a></li>
+            <li class="nav-item-motion"><a href="{{route('home')}}" class="nav-link px-2 text-dark">Society & Club</a></li>
+            <li class="nav-item-motion"><a href="{{route('product')}}" class="nav-link px-2 text-dark">Product</a></li>
+            <li class="nav-item-motion"><a href="{{route('viewOrder')}}" class="nav-link px-2 text-dark">My Order</a></li>
+            <li class="nav-item-motion"><a href="{{route('myCart')}}" class="nav-link px-2 text-dark">MyCart  <span class="badge bg-danger">{{Session()->get('cartItem')}}</span></a></li>
             @endif
             @endguest
             </ul>
@@ -118,7 +118,7 @@
                      <a href="{{route('login')}}"><button type="submit" herf="{{route('login')}}" class="btn btn-outline-dark me-2">Login</button></a>
                 @endif
                 @if (Route::has('register'))
-                    <a  href="{{route('register')}}"><button type="submit"  href="{{route('register')}}" class="btn btn-warning">Sign-up</button><a>
+                    <a  href="{{route('register')}}"><button type="submit"  href="{{route('register')}}" class="btn btn-warning">Sign-up</button></a>
 
                     @endif
                 @else
@@ -147,9 +147,19 @@
         </div>
         </div>
     </header>
-    <main>
+    <main >
             @yield('content')
     </main>
+    <div class="bottom-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <p style="text-align: center;margin-top:20px;">SouthernUC Club and Society © <script>document.write(new Date().getFullYear());</script> All Rights Reserved</p>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
     
     
     

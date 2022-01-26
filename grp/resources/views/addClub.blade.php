@@ -5,12 +5,12 @@
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
         <br><br>
-        <h3>Add New Club&Society</h3>
+        <h3>Add New Club & Society</h3>
         <form action="{{route('addNewClub')}}" method="POST" enctype="multipart/form-data">
             @CSRF
             <div class="form-group">
            
-            <label for="clubName">Club&Society Name</label>
+            <label for="clubName">Club & Society Name</label>
             <input class="form-control" type="text" id="clubName" name="clubName" required>
             </div>
             <div class="form-group">
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
             <label for="contact">Contact</label>
-            <input class="form-control" type="number" id="contact" name="contact" min="0" required>
+            <input class="form-control" type="text" id="contact" name="contact" min="0" required>
             </div>
             <div class="form-group">
             <label for="clubImage">Image</label>

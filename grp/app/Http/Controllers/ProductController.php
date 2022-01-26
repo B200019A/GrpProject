@@ -67,6 +67,7 @@ class ProductController extends Controller
         return view('product')->with('products', $products);
 
     }
+    
 
     //get the all club product information to the manageclubproduct page
     public function manageClubProduct(){

@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+/*Route::get('/',function(){
     return view('welcome');
-});
+});*/
+
 //for the addClub.blade.php
 Route::get('/addClub', function () {
     return view('addClub');
@@ -63,6 +63,7 @@ Route::get('/viewClubProduct/{id}', [App\Http\Controllers\ProductController::cla
 
 //view all product in product.blade.php
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'product'])->name('product');
+Route::get('/', [App\Http\Controllers\ProductController::class, 'product'])->name('product');
 
 //////////////////club crud//////////////////////////////////////////
 //manage club for checking
@@ -102,7 +103,7 @@ Route::get('/deleteClubProduct/{id}', [App\Http\Controllers\ProductController::c
 Route::get('/clubProductDetail/{id}', [App\Http\Controllers\ProductController::class, 'clubProductDetail'])->name('clubProduct.detail');
 
 //add to cart and update to database and go back to the myCart.blade.php
-Route::post('/myCart', [App\Http\Controllers\CartController::class, 'add'])->name('add.to.cart');
+Route::post('/myCart', [App\Http\Controllers\CartController::class, 'addCart'])->name('addToCart');
 
 //output all cart item in my cart page and follow user id in myCart.blade.php
 Route::get('/myCart', [App\Http\Controllers\CartController::class, 'view'])->name('myCart');
@@ -126,9 +127,8 @@ Route::post('/product', [App\Http\Controllers\ProductController::class, 'searchP
 Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'deleteCart'])->name('deleteCart');
 
 //modify cart item quantity
-Route::post('/myCart/{id}', [App\Http\Controllers\CartController::class, 'modifyCartItemQuantity'])->name('modifyCartItemQuantity');
+//Route::post('/myCart/{id}', [App\Http\Controllers\CartController::class, 'modifyCartItemQuantity'])->name('modifyCartItemQuantity');
 
-
-
-
+//modify cart item quantity
+//Route::post('/myCart', [App\Http\Controllers\CartController::class, 'modifyCartItemQuantity'])->name('modifyCartItemQuantity');
 

@@ -2,21 +2,17 @@
 
 @section('content')
 
-<!-- Styles -->
-<link href="{{ asset('css/userSide.css') }}" rel="stylesheet">
-
 <div class="row base-container">
     <div class="row" style="margin-top: 1.7rem;margin-bottom: 1.7rem;">
         <br>
-        <h4 class="page-title">Club & Society</h4>
+        <h4 class="page-title">SouthernUC Club and Society</h4>
         <br>
     </div>
-
     <div class="col-sm-2"></div>
     <div class="col-md-8">    
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach($clubs as $club)
-            <div class="col-md-4" style="padding-right:20px;padding-left:20px;"> <!-- each card occupy 4 spaces -->
+            <div class="col-md-3" style="padding-right:20px;padding-left:20px;"> <!-- each card occupy 4 spaces -->
                 <div class="card club">
                     <div class="card-body d-flex flex-column mt-auto">
                         <h5 class="card-title club-name">{{ $club->name }}</h5>

@@ -5,7 +5,7 @@
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
         <br><br>
-        <h3>Add New Club&Society Product</h3>
+        <h3>Add New Club & Society Product</h3>
         <form action="{{route('addNewProduct')}}" method="POST" enctype="multipart/form-data">
             @CSRF
             <div class="form-group">
@@ -25,7 +25,7 @@
             <input class="form-control" type="number" id="clubProductQuantity" name="clubProductQuantity" min="0" required>
             </div>
             <div class="form-group">
-            <a>Club&Society</a>
+            <a>Club & Society</a>
             <select name="clubId" id="clubId" class="form-control">
                 @foreach($clubId as $club)
                     <option value="{{$club->id}}">{{$club->name}}</option>

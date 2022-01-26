@@ -27,8 +27,8 @@
                     <td>{{  $club->description }}</td>       
                     <td>{{  $club->president }}</td>
                     <td>{{  $club->contact }}</td>
-                    <td><a href="{{route('editClub',['id'=>$club->id])}}" class="btn btn-warning btn-xs">Edit</a>
-                    <a href="{{route('deleteClub',['id'=>$club->id])}}" class="btn btn-danger btn-xs" onClick="return confirm('Are you sure to delete?')">Delete</a></td>
+                    <td><a href="{{route('editClub',['id'=>$club->id])}}" class="btn btn-warning btn-xs" style="width:80px;margin-bottom:5px;">Edit</a><br>
+                    <a href="{{route('deleteClub',['id'=>$club->id])}}" class="btn btn-danger btn-xs" style="width:80px;" onClick="return confirm('Are you sure to delete?')">Delete</a></td>
                 </tr>  
                 @endforeach
             
