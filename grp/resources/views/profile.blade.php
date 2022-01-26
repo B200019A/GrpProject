@@ -10,32 +10,28 @@
     </div>
 @endif
 
-<section class="account-wrap">   
-    <div id="myProfile" class="w3-container city">
+<div id="myProfile" class="w3-container base-container">
     <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
-        <br><br>
-        <h3>Your Profile</h3>
-            <div class="form-group">
-            <a>Name:</a>
-            <input class="form-control" type="text" id="name" name="name" value="{{ Auth::user()->name }}" disabled>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h4 class="profile-title">Your Profile</h4>
+            <div class="profile-wrap">
+                <br><br>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" id="name" name="name" value="{{ Auth::user()->name }}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="name">Email:</label>
+                    <input class="form-control" type="double" id="email" name="email" value="{{ Auth::user()->email }}" min="0"  disabled>
+                    </div>
+                    <br><br>
+                </div>
+                <div class="col-sm-3"></div>
             </div>
-            <div class="form-group">
-            <a>Email:</a>
-            <input class="form-control" type="double" id="email" name="email" value="{{ Auth::user()->email }}" min="0"  disabled>
-            </div>
-         
-        
-           <br><br>
+        </div>
     </div>
-    <div class="col-sm-3"></div>
-    </div>
-    </div>
-    </div>
-</section>
-
-
+</div>
 
 
 

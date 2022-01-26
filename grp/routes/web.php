@@ -63,7 +63,7 @@ Route::get('/viewClubProduct/{id}', [App\Http\Controllers\ProductController::cla
 
 //view all product in product.blade.php
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'product'])->name('product');
-Route::get('/', [App\Http\Controllers\ProductController::class, 'product'])->name('product');
+Route::get('/', [App\Http\Controllers\ProductController::class, 'product'])->name('welcome');
 
 //////////////////club crud//////////////////////////////////////////
 //manage club for checking

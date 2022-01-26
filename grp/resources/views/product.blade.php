@@ -22,7 +22,7 @@
                             <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><img src="{{asset('images/product/')}}/{{  $product->image }}" alt="{{ $product->name }}" class="club-image"><a>
                         </div>
                         <div style="margin-top:10px;">
-                            <div class="product-price">Price:  RM {{  $product->price }}</div>
+                            <div class="product-price">RM {{  $product->price }}</div>
                             <a href="{{route('viewClubProduct',['id'=>$product->clubid])}}" class="products-club">Club:  {{$product->clubName}}</a> <br>
                             <a href="{{route('clubProduct.detail',['id'=>$product->id])}}"><button type="submit" style="float:center;" class="enter-btn">View Detail</button></a>
                         </div>

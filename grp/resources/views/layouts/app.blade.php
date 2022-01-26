@@ -67,9 +67,9 @@
       {{Session::get('successUpdateClub')}}
     </div>
     @endif
-        <header class="p-3 bg-white text-dark shadow-sm">
+        <header class="p-3 bg-white text-dark nav-shadow">
         <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="{{route('home')}}" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">SouthernUC Club and Society
             <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
             </a>
@@ -77,7 +77,7 @@
             @guest
             <li class="nav-item-motion"><a href="" class="nav-link px-2 text-dark">Society & Club</a></li>
             <li class="nav-item-motion"><a href="#" class="nav-link px-2 text-dark">Product</a></li>
-            <li class="nav-item-motion"><a href="" class="nav-link px-2 text-dark">My Order</a></li>
+            <li class="nav-item-motion"><a href="" class="nav-link px-2 text-dark">MyOrder</a></li>
             <li class="nav-item-motion"><a href="#" class="nav-link px-2 text-dark">MyCart</a></li>
             @else
             @if (Auth::user()->id ==7)
@@ -101,7 +101,7 @@
             
             <li class="nav-item-motion"><a href="{{route('home')}}" class="nav-link px-2 text-dark">Society & Club</a></li>
             <li class="nav-item-motion"><a href="{{route('product')}}" class="nav-link px-2 text-dark">Product</a></li>
-            <li class="nav-item-motion"><a href="{{route('viewOrder')}}" class="nav-link px-2 text-dark">My Order</a></li>
+            <li class="nav-item-motion"><a href="{{route('viewOrder')}}" class="nav-link px-2 text-dark">MyOrder</a></li>
             <li class="nav-item-motion"><a href="{{route('myCart')}}" class="nav-link px-2 text-dark">MyCart  <span class="badge bg-danger">{{Session()->get('cartItem')}}</span></a></li>
             @endif
             @endguest
@@ -109,7 +109,7 @@
             
             <form action="{{route('searchProduct')}}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="POST" enctype="multipart/form-data">
             @CSRF
-            <input type="search" name="keyword" id="keyword" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+            <input type="search" name="keyword" id="keyword" class="form-control form-control-dark" placeholder="Search product keyword" aria-label="Search">
             </form>
 
            <div class="text-end">
@@ -144,7 +144,7 @@
                             </div>
             @endguest
             </div>
-        </div>
+          </div>
         </div>
     </header>
     <main >
@@ -153,7 +153,7 @@
     <div class="bottom-footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 col-lg-12">
+          <div class="col-md-12 col-lg-12" style="padding-top:10px;">
             <p style="text-align: center;margin-top:20px;">SouthernUC Club and Society © <script>document.write(new Date().getFullYear());</script> All Rights Reserved</p>
             <br>
           </div>

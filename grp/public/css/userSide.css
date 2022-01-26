@@ -3,6 +3,7 @@
     padding-top:10px; 
     padding-bottom:60px; 
     background: #fffdf5fd;
+    margin-top: 2px;
     animation-name: fade-in;
     animation-duration: 2s;
 }
@@ -60,7 +61,8 @@
 /* ViewClubProduct Page*/
 .club-container {
     padding-top:60px; 
-    padding-bottom:80px; 
+    padding-bottom:80px;
+    margin-top: 2px; 
     background-color: #fffdf5fd;
 }
 .about-club {
@@ -179,6 +181,7 @@ p {
 /* Products Page */
 .products-container {
     padding: 1.2rem 0 3rem 0;
+    margin-top: 2px;
     background-color: #fffdf5fd;
     animation-name: fade-in;
     animation-duration: 2s;
@@ -202,6 +205,7 @@ p {
 /* My Cart Page */
 .cart-container {
     padding: 1.2rem 0 8rem 0;
+    margin-top: 2px;
     background-color: #fffdf5fd;
     animation-name: fade-in;
     animation-duration: 2s;
@@ -280,6 +284,7 @@ thead {
 /* My Order Page */
 .order-container {
     padding: 1.2rem 0 8rem 0;
+    margin-top: 2px;
     background-color: #fffdf5fd;
     animation-name: fade-in;
     animation-duration: 2s;
@@ -322,4 +327,33 @@ thead {
 }
 .nav-item-motion:hover {
     font-size: 17px;
+}
+
+/* Admin Side Page*/
+.admin-background {
+    padding: 1.2rem 0 8rem 0;
+    background-color: #fffdf5fd;
+    margin-top: 2px;
+}
+
+/* navigation bar */
+.nav-shadow {
+    box-shadow: 0 1px 3px 0 rgba(29, 29, 29, 0.219) !important;
+}
+
+/* Profile page */
+.profile-wrap {
+    outline: thick solid rgba(250, 231, 207, 0.685);
+    background-color: rgba(250, 231, 207, 0.685);
+    border-radius: 15px;
+    margin-top: 11rem;
+    margin-bottom: 15rem;
+    padding: 0 40px 0 40px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.589);
+}
+.profile-title {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-top: 4.8rem;
 }

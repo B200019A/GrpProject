@@ -19,7 +19,7 @@
                         <p class="product-detail-text">Desciption:  <br>  {{ $clubProduct->description }}</p>
                         <div class="product-detail-text">Quantity:     <input type="number" min="1" max="{{ $clubProduct->quantity }}" id="quantity" name="quantity" value="1"></div>
                         <br><br>
-                        <div class="product-detail-text">Price per unit:  {{ $clubProduct->price }}</div>
+                        <div class="product-detail-text">Price per unit: RM{{ $clubProduct->price }}</div>
                         <br>
                         <button type="submit" class="add-cart-btn">Add to Cart</button>
                     </div>

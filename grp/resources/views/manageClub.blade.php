@@ -2,25 +2,25 @@
 
 @section('content')
 
-<div class="row">
+<div class="row admin-background">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
        <br><br>
        <table class="table table-bordered">
             <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Image</td>
-                    <td>Name</td>
-                    <td>description</td>
-                    <td>President</td>
-                    <td>Contact</td>
-                    <td></td>
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>description</th>
+                    <th>President</th>
+                    <th>Contact</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($clubs as $club)
-                <tr>
+                <tr style="background-color:white;">
                     <td>{{  $club->id}}</td>
                     <td ><img src="{{asset('images/club/')}}/{{  $club->image }}" alt="" width="100" class="img-fluid"></td>
                     <td>{{  $club->name }}</td>
