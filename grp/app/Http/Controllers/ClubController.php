@@ -31,7 +31,7 @@ class ClubController extends Controller
                 
             ]);
             //send a message for the app.blade.php to show the status message
-            Session::flash('successAddClub',"Club Add sucessfully!");
+            Session::flash('success',"Club Add sucessfully!");
             //return view manageClub.blade.php when after add
             return redirect()->route('manageClub');
     }
@@ -77,7 +77,7 @@ class ClubController extends Controller
         $clubs->save();
         
         //send a message for the app.blade.php to show the status message
-        Session::flash('successUpdateClub',"Club Update sucessfully!");
+        Session::flash('success',"Club Update sucessfully!");
         //return view manageClub.blade.php when after update
         return redirect()->route('manageClub');
     }
@@ -89,6 +89,7 @@ class ClubController extends Controller
 
         $deleteClub->delete();
         //return view manageClub.blade.php when after delete
+        Session::flash('successDelete',"Club delete sucessfully!");
         return redirect()->route('manageClub');
     }
     //crud end

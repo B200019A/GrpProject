@@ -1,32 +1,359 @@
-.footer-wrap {
-    /* background-image: url('/../assets/images/footer-background.png'); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* height: 700px; */
-    background-color: #232020;
+/* Home Page */
+.base-container {
+    padding-top:10px; 
+    padding-bottom:60px; 
+    background: #fffdf5fd;
+    margin-top: 2px;
+    animation-name: fade-in;
+    animation-duration: 2s;
 }
-
-.google-map-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    /* padding-top: 65.25%; */
-    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-    /* left: 50%;
-  transform: translateX(-50%); */
+.club {
+    font-family: "Times New Roman", Times, serif;
+    height: 22rem;
+    text-align:center;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
-
-*,*::before,*::after {
-    box-sizing: border-box;
+.club:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: red;
-    color: white;
+.club-name {
+    font-size: 1.5rem;
+    font-weight:bold;
+}
+.club-image {
+    max-width: 100%;
+    max-height: 150px;
+    height: auto;
+    width: 150px;
+}
+.president-name {
+    font-size: 1.2rem;
+}
+.enter-btn{
+    border-radius: 0px;
+    font-size: 1.2rem;
+    padding: 5px 20px 5px 20px;
+    border: 1px #e70000 solid;
+    background-color: #e70000;
+    color: #ffffff;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+.enter-btn:hover {
+    color: #ffffff;
+    background-color: #ad0000;
+    border: 1px #ad0000 solid;
+}
+.page-title {
+    font-family: "Times New Roman", Times, serif;
     text-align: center;
- }
+    font-size: 2.2rem;
+    /*animation-name: bling-in;
+    animation-duration: 2s;*/
+}
+/*@keyframes bling-in {
+    0%   {}
+    45%  {font-size: 1rem;}
+    70%  {font-size: 2.8rem;}
+}*/
+
+/* ViewClubProduct Page*/
+.club-container {
+    padding-top:60px; 
+    padding-bottom:80px;
+    margin-top: 2px; 
+    background-color: #fffdf5fd;
+}
+.about-club {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2rem;
+    padding-bottom: 30px;
+    animation-name: fade-in;
+    animation-duration: 2s;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.2);
+}
+.club-profile {
+    max-width: 100%;
+    max-height: 230px;
+    height: auto;
+    width: 230px;
+}
+.about-image {
+    text-align: right;
+    padding-top: 30px;
+    padding-right: 10%;
+    margin-bottom: 20px;
+}
+.about-text {
+    padding-top: 30px;
+    padding-left: 10%;
+}
+p {
+    font-size: 1.2rem;
+}
+.product-section {
+    animation-name: fade-in;
+    animation-duration: 4s;
+}
+@keyframes fade-in {
+    from{opacity:0} to{opacity:1};
+}
+.products {
+    font-family: "Times New Roman", Times, serif;
+    height: 25rem;
+    text-align:center;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.products:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.product-name {
+    font-size: 1.5rem;
+    font-weight:bold;
+}
+.product-image {
+    max-width: 100%;
+    max-height: 150px;
+    height: auto;
+    width: 150px;
+}
+.product-price {
+    font-size: 1.2rem;
+}
+
+/* Product Detail Page */
+.product-detail{
+    padding: 20px 20px 20px 20px;
+    background-color: #fffdf5fd;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    min-height: 880px;
+    padding-top: 60px;
+}
+#productDetail{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    transition: 0.3s;
+    width: 80%;
+    padding-top: 200px;
+    padding-left: 30px;
+    margin: auto;
+    height: 750px;
+}
+.product-detail-image {
+    max-width: 100%;
+    max-height: 500px;
+    height: auto;
+    width: 280px;
+    margin-right: 50px;
+}
+.club-product-name {
+    font-size: 1.7rem;
+    font-weight:bold;
+}
+.product-detail-text {
+    font-size: 1.2rem;
+}
+.add-cart-btn {
+    border-radius: 0px;
+    font-size: 1.2rem;
+    padding: 5px 20px 5px 20px;
+    border: 1px #f06f58 solid;
+    background-color: transparent;
+    color: #f06f58;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+.add-cart-btn:hover {
+    color: white;
+    background-color: #f06f58;
+}
+.add-cart-btn:active {
+    background-color: #852a1b;
+    border: 1px #852a1b solid;
+}
+
+/* Products Page */
+.products-container {
+    padding: 1.2rem 0 3rem 0;
+    margin-top: 2px;
+    background-color: #fffdf5fd;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+.products-title {
+    margin-top: 1.7rem;
+    margin-bottom: 1.7rem;
+}
+.products-layout {
+    padding: 0 20px 0 20px;
+}
+.products-club {
+    color: black;
+    text-align: center;
+}
+.products-club:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+/* My Cart Page */
+.cart-container {
+    padding: 1.2rem 0 8rem 0;
+    margin-top: 2px;
+    background-color: #fffdf5fd;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+.cart-title {
+    margin-top: 1.7rem;
+}
+td, th {
+    padding: 20px 15px 20px 15px;
+    text-align: center;
+    border-bottom: 2px solid rgba(250, 231, 207, 0.685);
+}
+th {
+    font-size: 1.2rem;
+    font-family: "Times New Roman", Times, serif;
+}
+thead {
+    background-color: rgba(255, 228, 196, 0.685);
+}
+.cart-table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 5px;
+    outline: thick solid rgba(250, 231, 207, 0.685);
+    padding-left: 5px; padding-right: 5px;
+}
+#CartItemquantity {
+    width:50px;
+}
+.delete-btn {
+    font-size: 1.2rem;
+    padding: 5px 20px 5px 20px;
+    border: 1px #f06f58 solid;
+    background-color: transparent;
+    color: #f06f58;
+    transition: 0.3s;
+}
+.submit-btn {
+    font-size: 1.1rem;
+    padding: 4px 15px 4px 15px;
+    border: 1px #1fa6f5 solid;
+    background-color: transparent;
+    color: #1fa6f5;
+    margin-top: 10px;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+.submit-btn:hover {
+    color: white;
+    background-color: #1fa6f5;
+}
+.submit-btn:active {
+    background-color: #0075b9;
+    border: 1px #0075b9 solid;
+}
+.item-data {
+    transition: 0.5s;
+    background-color: white;
+}
+.item-data:hover {
+    background-color:rgba(250, 236, 220, 0.548);
+}
+.item-data:hover .delete-btn {
+    color: white;
+    background-color: #f06f58;
+}
+.item-data:hover .delete-btn:hover {
+    background-color: #fa3613;
+    border: 1px #fa3613 solid;
+}
+.item-data:hover .delete-btn:active {
+    background-color: #852a1b;
+    border: 1px #852a1b solid;
+}
+
+/* My Order Page */
+.order-container {
+    padding: 1.2rem 0 8rem 0;
+    margin-top: 2px;
+    background-color: #fffdf5fd;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+.order-title {
+    margin-top: 1.7rem;
+}
+.order-table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 5px;
+    outline: thick solid rgba(250, 231, 207, 0.685);
+    padding-left: 5px; padding-right: 5px;
+}
+.print-btn {
+    font-size: 1.2rem;
+    padding: 5px 12px 5px 12px;
+    border: 1px rgba(250, 231, 207, 0.685) solid;
+    background-color: transparent;
+    color: rgb(255, 194, 119);
+    transition: 0.3s;
+    text-decoration: none !important; 
+}
+.item-data:hover .print-btn {
+    color: black;
+    background-color: rgba(250, 231, 207, 0.932);
+}
+.item-data:hover .print-btn:hover {
+    background-color: rgba(255, 179, 86, 0.829);
+    border: 1px rgba(255, 179, 86, 0.829) solid;
+}
+.item-data:hover .print-btn:active {
+    background-color: rgb(228, 143, 40);
+    border: 1px rgb(228, 143, 40) solid;
+}
+
+/* Navigation bar item hover motion */
+.nav-item-motion {
+    transition: 0.3s ease-in-out;
+}
+.nav-item-motion:hover {
+    font-size: 17px;
+}
+
+/* Admin Side Page*/
+.admin-background {
+    padding: 1.2rem 0 8rem 0;
+    background-color: #fffdf5fd;
+    margin-top: 2px;
+}
+
+/* navigation bar */
+.nav-shadow {
+    box-shadow: 0 1px 3px 0 rgba(29, 29, 29, 0.219) !important;
+}
+
+/* Profile page */
+.profile-wrap {
+    outline: thick solid rgba(250, 231, 207, 0.685);
+    background-color: rgba(250, 231, 207, 0.685);
+    border-radius: 15px;
+    margin-top: 11rem;
+    margin-bottom: 15rem;
+    padding: 0 40px 0 40px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.589);
+}
+.profile-title {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-top: 4.8rem;
+}

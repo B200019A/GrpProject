@@ -9,4 +9,8 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable=['name','description','price','quantity','clubid','typeId','image'];
+
+    public function product(){
+        return $this->belongsTo('App\Models\Club');
+    }
 }

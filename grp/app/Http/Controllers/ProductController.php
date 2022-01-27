@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use Auth;
 use App\Models\Product;
 use App\Models\Club;
 
 class ProductController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('auth');
+
+    }
+
     public function viewAddClubProduct(){
         
         $club=Club::all();
@@ -35,7 +42,7 @@ class ProductController extends Controller
             
         ]);
         //send a message for the app.blade.php to show the status message
-        Session::flash('successAddProduct',"Product add sucessfully!");
+        Session::flash('success',"Product add sucessfully!");
         //return route to the manageClubProduct.blade.php
         return redirect()->route('manageClubProduct');
 
@@ -45,6 +52,7 @@ class ProductController extends Controller
     public function viewClubProduct($id){
 
         $club=Club::all()->where('id',$id);
+
         $products=Product::all()->where('clubid',$id);//select all product in product table follow the club id
         //return the viewClubProduct.php
         return view('viewClubProduct')->with('products', $products)->with('clubs',$club);
@@ -118,7 +126,7 @@ class ProductController extends Controller
         $clubProducts->save();
 
         //send a message for the app.blade.php to show the status message
-        Session::flash('successUpdateProduct',"Product update sucessfully!");
+        Session::flash('success',"Product update sucessfully!");
         //return route to the manageClubProduct.blade.php
         return redirect()->route('manageClubProduct');
     }
@@ -129,33 +137,54 @@ class ProductController extends Controller
 
         $deleteClubProduct->delete();
         //return route to the manageClubProduct.blade.php
+        Session::flash('successDelete',"Club Product delete sucessfully!");
         return redirect()->route('manageClubProduct');
     }
     //show the product detail with product id
     public function clubProductDetail($id){
 
+        //calculate the car item number
+        (new CartController)->cartItem();
+        
         $clubProducts=Product::all()->where('id',$id);
+
         //return view to the clubProductDetail.blade.php and send the product data
         return view('clubProductDetail')->with('clubProducts',$clubProducts);
     }
     //search product follow the search keyword
     public function searchProduct(){
-
         $r=request();
         $keyword=$r->keyword;
+        if(Auth::user()->id==1){
+             //select the products table in db
+            $manageClubProduct=DB::table('products')
+            //join clubs table the clubs id equal products table the clubid
+            ->leftjoin('clubs','clubs.id','=','products.clubid')
+            //select products table all data and clubs table name data
+            ->select('products.*','clubs.name as clubName')
+            //match the keyword or like the keyword in products table data
+            ->where('products.name','like','%'.$keyword.'%')
+    
+            ->get();
  
-        $product=DB::table('clubs')
-        //join the products table and products.clubid equal clubs.id
-        ->leftjoin('products','products.clubid','=','clubs.id')
-        //select the club name and club id in club table , select all product in products table
-        ->select('clubs.name as clubName','clubs.id as cid','products.*')
-        // match the keyword or like the keyword in products table data
-        ->where('products.name','like','%'.$keyword.'%')
+          //return view manageClubProduct.blade.php
+          return view('manageClubProduct')->with('clubProducts', $manageClubProduct);
+        }else{
+            
+     
+            $product=DB::table('clubs')
+            //join the products table and products.clubid equal clubs.id
+            ->leftjoin('products','products.clubid','=','clubs.id')
+            //select the club name and club id in club table , select all product in products table
+            ->select('clubs.name as clubName','clubs.id as cid','products.*')
+            // match the keyword or like the keyword in products table data
+            ->where('products.name','like','%'.$keyword.'%')
+    
+            ->get();
+            //return view product.blade.php
+            return view('product')->with('products', $product);
 
-        ->get();
-        //return view product.blade.php
-        return view('product')->with('products', $product);
-
+        }
     }
 
 }

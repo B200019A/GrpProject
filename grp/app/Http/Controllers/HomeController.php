@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         //when open home page print all club in home page
-        if(Auth::user()->id==7){
+        if(Auth::user()->id==1){
             $showClub=DB::table('clubs')->get();
             return redirect()->route('addClub');
         }else{

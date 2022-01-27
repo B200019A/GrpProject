@@ -9,4 +9,9 @@ class Club extends Model
 {
     use HasFactory;
     protected $fillable=['name','description','president','contact','image'];
+
+    public function Club(){
+
+        return $this->hasMany('App\Models\Product');
+    }
 }

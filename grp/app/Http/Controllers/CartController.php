@@ -35,7 +35,7 @@ class CartController extends Controller
 
         //repeat calculate the total cart item
         $this->cartItem();
-        
+        Session::flash('success',"Club Product add to cart sucessfully!");
         //return to the myCart.blade.php
         return redirect()->route('myCart');
     }
@@ -87,6 +87,7 @@ class CartController extends Controller
 
         $deleteCart->delete();
         //return route to the myCart.blade.php
+        Session::flash('successDelete',"Cart Item delete sucessfully!");
         return redirect()->route('myCart');
     }
 

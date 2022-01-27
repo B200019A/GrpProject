@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*Route::get('/',function(){
-    return view('welcome');
-});*/
+Route::get('/',function(){
+    return view('welcome',['clubId' => App\Models\Club::all()],['products' => App\Models\Product::all()]);
+});
 
 //for the addClub.blade.php
 Route::get('/addClub', function () {
@@ -55,15 +55,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //get the user information in the profile.blade.php
 Route::get('/profile/{userId}', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
 
-// update the user information
-//Route::post('/profile/{userId}', [App\Http\Controllers\ProfileController::class, 'update'])->name('updateInformation');
-
 //view the club product follow the club id in the viewClubProduct.blade.php
 Route::get('/viewClubProduct/{id}', [App\Http\Controllers\ProductController::class, 'viewClubProduct'])->name('viewClubProduct');
 
 //view all product in product.blade.php
 Route::get('/product', [App\Http\Controllers\ProductController::class, 'product'])->name('product');
-Route::get('/', [App\Http\Controllers\ProductController::class, 'product'])->name('welcome');
 
 //////////////////club crud//////////////////////////////////////////
 //manage club for checking
@@ -126,9 +122,5 @@ Route::post('/product', [App\Http\Controllers\ProductController::class, 'searchP
 //delete cart
 Route::get('/deleteCart/{id}', [App\Http\Controllers\CartController::class, 'deleteCart'])->name('deleteCart');
 
-//modify cart item quantity
-//Route::post('/myCart/{id}', [App\Http\Controllers\CartController::class, 'modifyCartItemQuantity'])->name('modifyCartItemQuantity');
 
-//modify cart item quantity
-//Route::post('/myCart', [App\Http\Controllers\CartController::class, 'modifyCartItemQuantity'])->name('modifyCartItemQuantity');
 

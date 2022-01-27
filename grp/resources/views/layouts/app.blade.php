@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/userSide.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!--do my self-->
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -41,30 +41,20 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="../css/style.css">
+        
 
 </head>
 
   
     <body>
-    @if(Session::has('successAddProduct'))
+    @if(Session::has('success'))
     <div class="alert alert-success" role="alert">
-      {{Session::get('successAddProduct')}}
+      {{Session::get('success')}}
     </div>
     @endif
-    @if(Session::has('successUpdateProduct'))
-    <div class="alert alert-success" role="alert">
-      {{Session::get('successUpdateProduct')}}
-    </div>
-    @endif
-    @if(Session::has('successAddClub'))
-    <div class="alert alert-success" role="alert">
-      {{Session::get('successAddClub')}}
-    </div>
-    @endif
-    @if(Session::has('successUpdateClub'))
-    <div class="alert alert-success" role="alert">
-      {{Session::get('successUpdateClub')}}
+    @if(Session::has('successDelete'))
+    <div class="alert alert-danger" role="alert">
+      {{Session::get('successDelete')}}
     </div>
     @endif
         <header class="p-3 bg-white text-dark nav-shadow">
@@ -80,7 +70,7 @@
             <li class="nav-item-motion"><a href="" class="nav-link px-2 text-dark">MyOrder</a></li>
             <li class="nav-item-motion"><a href="#" class="nav-link px-2 text-dark">MyCart</a></li>
             @else
-            @if (Auth::user()->id ==7)
+            @if (Auth::user()->id ==1)
                           <li class="nav-link px-2" style="color:chocolate; font-weight:bold; font-size:17px;">Admin</li>
                           <li class="nav-item-motion"><a href="{{route('addClub')}}" class="nav-link px-2 text-dark">AddClub</a></li>
                           <li class="nav-item-motion"><a href="{{route('addClubProduct')}}" class="nav-link px-2 text-dark">AddClubProduct</a></li>
@@ -109,7 +99,7 @@
             
             <form action="{{route('searchProduct')}}" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="POST" enctype="multipart/form-data">
             @CSRF
-            <input type="search" name="keyword" id="keyword" class="form-control form-control-dark" placeholder="Search product keyword" aria-label="Search">
+            <input type="search" name="keyword" id="keyword" class="form-control form-control-dark" placeholder="Search product" aria-label="Search">
             </form>
 
            <div class="text-end">

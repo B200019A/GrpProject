@@ -17,13 +17,11 @@
     function submit(){
 
         
-    }
-     
+    }   
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    
     <div class="row cart-container">
         <div class="row cart-title"> <!-- Title -->
             <br>
@@ -90,7 +88,4 @@
         </div>
         <div class="col-sm-2"></div>
     </div>
-    
-
-
 @endsection
