@@ -73,7 +73,7 @@
                             <!-- Subtotal -->      
                             <td>RM {{  $clubProduct->price*$clubProduct->cartQty}}</td>
                             <!-- Delete button -->
-                            <td><a href="{{route('deleteCart',['id'=>$clubProduct->cid])}}" style="text-decoration: none;" class="delete-btn">Delete</a>
+                            <td><a href="{{route('deleteCart',['id'=>$clubProduct->cid])}}" style="text-decoration: none;" class="delete-btn" onClick="return confirm('Are you sure to delete?')">Delete</a>
                         </tr>  
                         @endforeach
                         <!-- Total amount & Check out button -->
