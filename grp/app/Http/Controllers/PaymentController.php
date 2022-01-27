@@ -8,6 +8,7 @@ use App\Models\Order;
 use Auth;
 use DB;
 use Notification;
+use Session;
 
 class PaymentController extends Controller
 {
@@ -41,6 +42,7 @@ class PaymentController extends Controller
         $email="jjlai0112@gmail.com";
         Notification::route('mail',$email)->notify(new \App\Notifications\orderPaid($email));
         //done the payment and route to the myCart.blade.php
+        Session::flash('success',"Paymend done sucessfully!");
         return redirect()->route('myCart');
     }
 }
