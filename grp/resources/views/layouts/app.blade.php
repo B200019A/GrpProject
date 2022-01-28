@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
+    <link rel="shortcut icon" href="images/southernLogo1.png" type="image/icon type">
     <!--do my self-->
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta charset="UTF-8">
